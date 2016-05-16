@@ -13,19 +13,19 @@
           </children>
           <children xsi:type="basic:PartSashContainer" xmi:id="_uutL4BruEea5kf3wxK5uXw" elementId="com.project.kth.pwpr3d.app.partsashcontainer.0" accessibilityPhrase="EditView">
             <children xsi:type="basic:PartStack" xmi:id="_YgTlIBrwEea5kf3wxK5uXw" elementId="com.project.kth.pwpr3d.app.partstack.1">
-              <children xsi:type="basic:Part" xmi:id="_Y3O3YBrwEea5kf3wxK5uXw" elementId="com.project.kth.pwpr3d.app.part.editor" contributionURI="bundleclass://com.project.kth.pwpr3d.app/com.project.kth.pwpr3d.app.parts.EditorPart" label="Editor" closeable="true">
+              <children xsi:type="basic:Part" xmi:id="_Y3O3YBrwEea5kf3wxK5uXw" elementId="com.project.kth.pwpr3d.app.part.editor" contributionURI="bundleclass://com.project.kth.pwpr3d.app/com.project.kth.pwpr3d.app.parts.EditorPart" label="Editor" iconURI="platform:/plugin/com.project.kth.pwpr3d.app/icons/icons/icons/gui_editor.gif" closeable="true">
                 <toolbar xmi:id="_RDlfcBrxEea5kf3wxK5uXw" elementId="com.project.kth.pwpr3d.app.toolbar.1"/>
               </children>
             </children>
             <children xsi:type="basic:PartStack" xmi:id="_K-ja4BrxEea5kf3wxK5uXw" elementId="com.project.kth.pwpr3d.app.partstack.2">
-              <children xsi:type="basic:Part" xmi:id="_LMskkBrxEea5kf3wxK5uXw" elementId="com.project.kth.pwpr3d.app.part.properties" label="Properties" closeable="true">
+              <children xsi:type="basic:Part" xmi:id="_LMskkBrxEea5kf3wxK5uXw" elementId="com.project.kth.pwpr3d.app.part.properties" contributionURI="bundleclass://com.project.kth.pwpr3d.app/com.project.kth.pwpr3d.app.parts.PropertiesPart" label="Properties" iconURI="platform:/plugin/com.project.kth.pwpr3d.app/icons/properties.png" closeable="true">
                 <toolbar xmi:id="_QQhq0BrxEea5kf3wxK5uXw" elementId="com.project.kth.pwpr3d.app.toolbar.0"/>
               </children>
             </children>
           </children>
           <children xsi:type="basic:PartSashContainer" xmi:id="_-XZGEBrwEea5kf3wxK5uXw" elementId="com.project.kth.pwpr3d.app.partsashcontainer.1">
             <children xsi:type="basic:PartStack" xmi:id="_A0jFABrxEea5kf3wxK5uXw" elementId="com.project.kth.pwpr3d.app.partstack.0">
-              <children xsi:type="basic:Part" xmi:id="_BhMIkBrxEea5kf3wxK5uXw" elementId="com.project.kth.pwpr3d.app.part.palette" label="Palette" closeable="true">
+              <children xsi:type="basic:Part" xmi:id="_BhMIkBrxEea5kf3wxK5uXw" elementId="com.project.kth.pwpr3d.app.part.palette" contributionURI="bundleclass://com.project.kth.pwpr3d.app/com.project.kth.pwpr3d.app.parts.PalettePart" label="Palette" iconURI="platform:/plugin/com.project.kth.pwpr3d.app/icons/palette.png" closeable="true">
                 <toolbar xmi:id="_XDkr8BrxEea5kf3wxK5uXw" elementId="com.project.kth.pwpr3d.app.toolbar.3"/>
               </children>
             </children>
