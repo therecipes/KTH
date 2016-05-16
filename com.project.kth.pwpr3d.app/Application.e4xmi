@@ -13,7 +13,7 @@
           </children>
           <children xsi:type="basic:PartSashContainer" xmi:id="_uutL4BruEea5kf3wxK5uXw" elementId="com.project.kth.pwpr3d.app.partsashcontainer.0" accessibilityPhrase="EditView">
             <children xsi:type="basic:PartStack" xmi:id="_YgTlIBrwEea5kf3wxK5uXw" elementId="com.project.kth.pwpr3d.app.partstack.1">
-              <children xsi:type="basic:Part" xmi:id="_Y3O3YBrwEea5kf3wxK5uXw" elementId="com.project.kth.pwpr3d.app.part.editor" label="Editor" closeable="true">
+              <children xsi:type="basic:Part" xmi:id="_Y3O3YBrwEea5kf3wxK5uXw" elementId="com.project.kth.pwpr3d.app.part.editor" contributionURI="bundleclass://com.project.kth.pwpr3d.app/com.project.kth.pwpr3d.app.parts.EditorPart" label="Editor" closeable="true">
                 <toolbar xmi:id="_RDlfcBrxEea5kf3wxK5uXw" elementId="com.project.kth.pwpr3d.app.toolbar.1"/>
               </children>
             </children>
