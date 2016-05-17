@@ -154,17 +154,11 @@ public class PalettePart {
 		rectangleFigure.setPreferredSize(15, 15);
 		rectangleFigure.add(new Label(name));
 		rectangleFigure.setToolTip(new Label(name));
-		createDragSource(rectangleFigure);
+		
 		return rectangleFigure;
 	}
 
 
-	private void createDragSource(RectangleFigure rectangleFigure) {
-		// TODO Auto-generated method stub
-		int operations = DND.DROP_MOVE | DND.DROP_COPY | DND.DROP_LINK;
-		final DragSource source = new DragSource (rectangleFigure, operations);
-		 Transfer[] types = new Transfer[] {};
-	}
-
+	
 	
 }

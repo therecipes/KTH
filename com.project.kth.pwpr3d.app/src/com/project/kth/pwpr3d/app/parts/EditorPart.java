@@ -4,14 +4,12 @@ import javax.annotation.PostConstruct;
 
 import org.eclipse.draw2d.ColorConstants;
 import org.eclipse.draw2d.Figure;
-import org.eclipse.draw2d.GridData;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.LightweightSystem;
 import org.eclipse.draw2d.RectangleFigure;
 import org.eclipse.draw2d.XYLayout;
 import org.eclipse.draw2d.geometry.Point;
 import org.eclipse.draw2d.geometry.Rectangle;
-import org.eclipse.nebula.snippets.compositetable.CompositeTableSnippet5.Dragger;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.dnd.DND;
 import org.eclipse.swt.dnd.DropTarget;
@@ -19,22 +17,21 @@ import org.eclipse.swt.dnd.DropTargetEvent;
 import org.eclipse.swt.dnd.DropTargetListener;
 import org.eclipse.swt.dnd.TextTransfer;
 import org.eclipse.swt.dnd.Transfer;
+import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Canvas;
 import org.eclipse.swt.widgets.Composite;
-import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Group;
-import org.eclipse.swt.widgets.Label;
 
-import com.project.kth.pwpr3d.view.View;
+import com.project.kth.pwpr3d.app.dragndrop.Dragger;
 
-public class EditorPart extends View {
 
-	public static final String ID = "com.project.kth.pwpr3d.app.part.editor";
+public class EditorPart  {
+	private Canvas canvas;
 
 	@PostConstruct
 	public void createComposite(Composite parent) {
-		Canvas canvas = createDiagram(parent);
+		canvas = createDiagram(parent);
 		canvas.setLayoutData(new GridData(GridData.FILL_BOTH));
 		final Group grpCanvas = new Group(canvas, SWT.NONE);
         grpCanvas.setText("Canvas");
@@ -137,13 +134,6 @@ public class EditorPart extends View {
 		return canvas;
 	}
 
-	@Override
-	protected Control[] createChildren(Composite parent) {
-		// TODO Auto-generated method stub
-		final Label label = new Label(parent, SWT.BORDER);
-		label.setText("Another Label");
-
-		return new Control[] { label };
-	}
+	
 
 }
