@@ -18,7 +18,7 @@
               </children>
             </children>
             <children xsi:type="basic:PartStack" xmi:id="_K-ja4BrxEea5kf3wxK5uXw" elementId="com.project.kth.pwpr3d.app.partstack.2">
-              <children xsi:type="basic:Part" xmi:id="_LMskkBrxEea5kf3wxK5uXw" elementId="com.project.kth.pwpr3d.app.part.properties" contributionURI="bundleclass://com.project.kth.pwpr3d.app/com.project.kth.pwpr3d.app.parts.PropertiesPart" label="Properties" iconURI="platform:/plugin/com.project.kth.pwpr3d.app/icons/properties.png" closeable="true">
+              <children xsi:type="basic:Part" xmi:id="_LMskkBrxEea5kf3wxK5uXw" elementId="com.project.kth.pwpr3d.app.part.properties" contributionURI="bundleclass://com.project.kth.pwpr3d.app/com.project.kth.pwpr3d.view.View" label="Properties" iconURI="platform:/plugin/com.project.kth.pwpr3d.app/icons/properties.png" closeable="true">
                 <toolbar xmi:id="_QQhq0BrxEea5kf3wxK5uXw" elementId="com.project.kth.pwpr3d.app.toolbar.0"/>
               </children>
             </children>
