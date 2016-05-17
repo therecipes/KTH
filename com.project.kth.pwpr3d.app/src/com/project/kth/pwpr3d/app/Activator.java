@@ -1,5 +1,7 @@
 package com.project.kth.pwpr3d.app;
 
+//update
+
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
 
