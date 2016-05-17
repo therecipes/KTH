@@ -27,94 +27,13 @@ import com.project.kth.pwpr3d.app.dragndrop.Dragger;
 
 
 public class EditorPart  {
-	private Canvas canvas;
+	private static Canvas canvas;
+	static IFigure panel;
 
 	@PostConstruct
 	public void createComposite(Composite parent) {
-		canvas = createDiagram(parent);
-		canvas.setLayoutData(new GridData(GridData.FILL_BOTH));
-		final Group grpCanvas = new Group(canvas, SWT.NONE);
-        grpCanvas.setText("Canvas");
-        grpCanvas.setLayout(new GridLayout());
-        grpCanvas.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true));
-
-        canvas = new Canvas(grpCanvas, SWT.NONE);
-        canvas.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true));
-
-        LightweightSystem lws = new LightweightSystem(canvas); //
-        final IFigure panel = new Figure(); //
-        lws.setContents(panel); //
-        
-        Transfer[] types = new Transfer[] { TextTransfer.getInstance() };
-        DropTarget dropTarget = new DropTarget(canvas, DND.DROP_COPY | DND.DROP_DEFAULT);
-        dropTarget.setTransfer(types);
-
-        dropTarget.addDropListener(new DropTargetListener()
-        {
-            public void dragEnter(DropTargetEvent event)
-            {
-                if (event.detail == DND.DROP_DEFAULT)
-                {
-                    if ((event.operations & DND.DROP_COPY) != 0)
-                    {
-                        event.detail = DND.DROP_COPY;
-                    }
-                    else
-                    {
-                        event.detail = DND.DROP_NONE;
-                    }
-                }
-            }
-
-            public void dragLeave(DropTargetEvent event)
-            {
-            }
-
-            public void dragOperationChanged(DropTargetEvent event)
-            {
-            }
-
-            public void dragOver(DropTargetEvent event)
-            {
-            }
-
-            public void drop(DropTargetEvent event)
-            {
-            }
-
-            public void dropAccept(final DropTargetEvent event)
-            {
-
-                if (TextTransfer.getInstance().isSupportedType(event.currentDataType))
-                {
-                    String d = (String) TextTransfer.getInstance().nativeToJava(event.currentDataType);
-
-                    org.eclipse.swt.graphics.Point droppoint = canvas.toControl(event.x, event.y);
-
-                    // DRAW 2D SECTION
-                    RectangleFigure node1 = new RectangleFigure();
-                    Rectangle rect = new Rectangle(droppoint.x, droppoint.y, 20, 20);
-                    Rectangle rect2 = new Rectangle(droppoint.x, droppoint.y, 100, 25);
-                    node1.setBounds(rect);
-                    node1.setBackgroundColor(ColorConstants.cyan);
-
-                    org.eclipse.draw2d.Label droppedName = new org.eclipse.draw2d.Label(d);
-                    droppedName.setLocation(new Point(droppoint.x, droppoint.y)); // draw2d.
-                                                                                  // point
-                    droppedName.setBounds(rect2);
-
-                    node1.add(droppedName);
-                    panel.add(node1);
-                    panel.add(droppedName);
-
-                    new Dragger(node1);
-                    new Dragger(droppedName);
-
-                    canvas.redraw();
-                }
-            }
-        });
-
+		setCanvas(createDiagram(parent));
+		getCanvas().setLayoutData(new GridData(GridData.FILL_BOTH));		
 	}
 
 	private Canvas createDiagram(Composite parent) {
@@ -132,6 +51,14 @@ public class EditorPart  {
 		LightweightSystem lws = new LightweightSystem(canvas);
 		lws.setContents(root);
 		return canvas;
+	}
+
+	public static Canvas getCanvas() {
+		return canvas;
+	}
+
+	public void setCanvas(Canvas canvas) {
+		EditorPart.canvas = canvas;
 	}
 
 	
