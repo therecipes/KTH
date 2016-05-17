@@ -2,153 +2,163 @@ package com.project.kth.pwpr3d.app.parts;
 
 import javax.annotation.PostConstruct;
 
+import org.eclipse.draw2d.ChopboxAnchor;
 import org.eclipse.draw2d.ColorConstants;
 import org.eclipse.draw2d.Figure;
+import org.eclipse.draw2d.GridData;
 import org.eclipse.draw2d.IFigure;
+import org.eclipse.draw2d.Label;
 import org.eclipse.draw2d.LightweightSystem;
+import org.eclipse.draw2d.LineBorder;
+import org.eclipse.draw2d.PolygonShape;
+import org.eclipse.draw2d.PolylineConnection;
 import org.eclipse.draw2d.RectangleFigure;
+import org.eclipse.draw2d.StackLayout;
+import org.eclipse.draw2d.XYLayout;
+import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.draw2d.geometry.Point;
 import org.eclipse.draw2d.geometry.Rectangle;
+import org.eclipse.jface.util.LocalSelectionTransfer;
+import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.dnd.DND;
 import org.eclipse.swt.dnd.DragSource;
+import org.eclipse.swt.dnd.DragSourceAdapter;
 import org.eclipse.swt.dnd.DragSourceEvent;
-import org.eclipse.swt.dnd.DragSourceListener;
 import org.eclipse.swt.dnd.DropTarget;
+import org.eclipse.swt.dnd.DropTargetAdapter;
 import org.eclipse.swt.dnd.DropTargetEvent;
-import org.eclipse.swt.dnd.DropTargetListener;
-import org.eclipse.swt.dnd.TextTransfer;
 import org.eclipse.swt.dnd.Transfer;
-import org.eclipse.swt.layout.GridData;
-import org.eclipse.swt.layout.GridLayout;
+import org.eclipse.swt.graphics.Color;
+import org.eclipse.swt.graphics.Cursor;
+import org.eclipse.swt.graphics.Font;
+import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Canvas;
 import org.eclipse.swt.widgets.Composite;
-import org.eclipse.swt.widgets.Group;
-import org.eclipse.swt.widgets.Label;
+import org.eclipse.swt.widgets.Control;
+import org.eclipse.ui.part.ViewPart;
 
-import com.project.kth.pwpr3d.app.dragndrop.Dragger;
 
 public class PropertiesPart {
-	private Label  lblUnicorn;
-	private Canvas canvas;
-    @PostConstruct
+	
+	 private final static Cursor  ARROW_CURSOR   = new Cursor(null, SWT.CURSOR_ARROW);  
+	 
+	 private final static Dimension SECNEED_DIMENSION  = new Dimension(40, 18); 
+	 private final static Font   SEC_NEED_FONT   = new Font(null, "Arial", 8, SWT.NORMAL);
+
+	@PostConstruct
 	public void createComposite(Composite parent) {
-		Group grpPalette = new Group(parent, SWT.NONE);
-        grpPalette.setText("Palette");
-        grpPalette.setLayout(new GridLayout());
-        grpPalette.setLayoutData(new GridData(SWT.BEGINNING, SWT.FILL, false, true));
+		Canvas canvas = createDiagram(parent);
+		canvas.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true));
+	}
 
-        lblUnicorn = new Label(grpPalette, SWT.BORDER | SWT.HORIZONTAL | SWT.CENTER);
-        lblUnicorn.setText("UNICORN");
-        // ADDED A FINAL HERE!!
-        lblUnicorn.setAlignment(SWT.CENTER);
+	
+	private Canvas createDiagram(Composite parent) {
+		// TODO Auto-generated method stub
+		// Create a root figure and simple layout to contain
+		// all other figures
+		Figure root = new Figure();
+		root.setFont(parent.getFont());
+		root.setLayoutManager(new XYLayout());
 
-        final Group grpCanvas = new Group(EditorPart.getCanvas(), SWT.NONE);
-        grpCanvas.setText("Canvas");
-        grpCanvas.setLayout(new GridLayout());
-        grpCanvas.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true));
+		// Create a canvas to display the root figure
+		Canvas canvas = new Canvas(parent, SWT.DOUBLE_BUFFERED);
+		canvas.setBackground(ColorConstants.white);
+		LightweightSystem lws = new LightweightSystem(canvas);
+		lws.setContents(root);
 
-        canvas = new Canvas(grpCanvas, SWT.NONE);
-        canvas.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true));
+		// Add the father "Andy"
+		IFigure andy = createPersonFigure("Andy");
+		root.add(andy,
+				new Rectangle(new Point(10, 10), andy.getPreferredSize()));
 
-        LightweightSystem lws = new LightweightSystem(canvas); //
-        EditorPart.panel = new Figure(); //
-        lws.setContents(EditorPart.panel); //
-        
-        DragSource dragSource1 = new DragSource(lblUnicorn, DND.DROP_COPY);
-        Transfer[] transfers1 = new Transfer[] { TextTransfer.getInstance() };
-        dragSource1.setTransfer(transfers1);
-        dragSource1.addDragListener(new DragSourceListener()
-        {
-            public void dragStart(DragSourceEvent event)
-            {
-                if (lblUnicorn.getText().length() == 0)
-                {
-                    event.doit = false;
-                }
-            }
+		// Add the mother "Betty"
+		IFigure betty = createPersonFigure("Betty");
+		root.add(betty,
+				new Rectangle(new Point(30, 10), andy.getPreferredSize()));
 
-            public void dragSetData(DragSourceEvent event)
-            {
-                if (TextTransfer.getInstance().isSupportedType(event.dataType))
-                {
-                    event.data = lblUnicorn.getText();
-                }
-            }
+		// Add the son "Carl"
+		IFigure carl = createPersonFigure("Carl");
+		root.add(carl,
+				new Rectangle(new Point(50, 10), carl.getPreferredSize()));
+		
+		IFigure marriage = createMarriageFigure();
+		root.add(marriage,
+				new Rectangle(new Point(70, 10), marriage.getPreferredSize()));
 
-            public void dragFinished(DragSourceEvent event)
-            {
-            }
-        });
-        Transfer[] types = new Transfer[] { TextTransfer.getInstance() };
-        DropTarget dropTarget = new DropTarget(EditorPart.getCanvas(), DND.DROP_COPY | DND.DROP_DEFAULT);
-        dropTarget.setTransfer(types);dropTarget.addDropListener(new DropTargetListener()
-        {
-            public void dragEnter(DropTargetEvent event)
-            {
-                if (event.detail == DND.DROP_DEFAULT)
-                {
-                    if ((event.operations & DND.DROP_COPY) != 0)
-                    {
-                        event.detail = DND.DROP_COPY;
-                    }
-                    else
-                    {
-                        event.detail = DND.DROP_NONE;
-                    }
-                }
-            }
+		IFigure benj = createPersonFigure("Benj", "Admin", new Color(null,
+				(new Double(Math.random() * 128)).intValue() + 128,
+				(new Double(Math.random() * 128)).intValue() + 128,
+				(new Double(Math.random() * 128)).intValue() + 128));
+		root.add(benj, new Rectangle(new Point(90, 10), benj.getPreferredSize()));
 
-            public void dragLeave(DropTargetEvent event)
-            {
-            }
+		
 
-            public void dragOperationChanged(DropTargetEvent event)
-            {
-            }
+		//root.add(connect(andy, marriage));
+		//root.add(connect(betty, marriage));
+		//root.add(connect(carl, marriage));
 
-            public void dragOver(DropTargetEvent event)
-            {
-            }
+		return canvas;
+	}
 
-            public void drop(DropTargetEvent event)
-            {
-            }
+	private IFigure createPersonFigure(String name, String tooltipName,
+			Color borderColor) {
 
-            public void dropAccept(final DropTargetEvent event)
-            {
+		RectangleFigure result = new RectangleFigure();
+		result.setSize(15, 15);
+		result.setPreferredSize(SECNEED_DIMENSION);
+		result.setCursor(ARROW_CURSOR);
+		result.setBorder(new LineBorder(2));
+		result.setBackgroundColor(ColorConstants.white);
+		result.setForegroundColor(borderColor);
+		StackLayout layout = new StackLayout();
+		result.setLayoutManager(layout);
+		result.getPreferredSize(20, 20);
 
-                if (TextTransfer.getInstance().isSupportedType(event.currentDataType))
-                {
-                    String d = (String) TextTransfer.getInstance().nativeToJava(event.currentDataType);
+		Label l = new Label();
+		l.setText(name);
+		((IFigure) l).setForegroundColor(ColorConstants.black);
+		l.setFont(SEC_NEED_FONT);
+		result.setToolTip((IFigure) new Label());
+		result.add((IFigure) l);
+		return result;
+	}
 
-                    org.eclipse.swt.graphics.Point droppoint = EditorPart.getCanvas().toControl(event.x, event.y);
+	private IFigure createMarriageFigure() {
+		// TODO Auto-generated method stub
+		Rectangle r = new Rectangle(0, 0, 15, 15);
+		PolygonShape polygonShape = new PolygonShape();
+		polygonShape.setStart(r.getTop());
+		polygonShape.addPoint(r.getTop());
+		polygonShape.addPoint(r.getLeft());
+		polygonShape.addPoint(r.getBottom());
+		polygonShape.addPoint(r.getRight());
+		polygonShape.addPoint(r.getTop());
+		polygonShape.setEnd(r.getTop());
+		polygonShape.setFill(true);
+		polygonShape.setBackgroundColor(new Color(null, (new Double(Math
+				.random() * 128)).intValue() + 128, (new Double(
+				Math.random() * 128)).intValue() + 128, (new Double(Math
+				.random() * 128)).intValue() + 128));
+		polygonShape.setPreferredSize(r.getSize());
+		return polygonShape;
+	}
 
-                    // DRAW 2D SECTION
-                    RectangleFigure node1 = new RectangleFigure();
-                    Rectangle rect = new Rectangle(droppoint.x, droppoint.y, 20, 20);
-                    Rectangle rect2 = new Rectangle(droppoint.x, droppoint.y, 100, 25);
-                    node1.setBounds(rect);
-                    node1.setBackgroundColor(ColorConstants.cyan);
-
-                    org.eclipse.draw2d.Label droppedName = new org.eclipse.draw2d.Label(d);
-                    droppedName.setLocation(new Point(droppoint.x, droppoint.y)); // draw2d.
-                                                                                  // point
-                    droppedName.setBounds(rect2);
-
-                    node1.add(droppedName);
-                    EditorPart.panel.add(node1);
-                    EditorPart.panel.add(droppedName);
-
-                    new Dragger(node1);
-                    new Dragger(droppedName);
-
-                    EditorPart.getCanvas().redraw();
-                }
-            }
-        });
-
+	private IFigure createPersonFigure(String name) {
+		// TODO Auto-generated method stub
+		RectangleFigure rectangleFigure = new RectangleFigure();
+		rectangleFigure.setBackgroundColor(new Color(null, (new Double(Math
+				.random() * 128)).intValue(), (new Double(Math.random() * 128))
+				.intValue(), (new Double(Math.random() * 128)).intValue()));
+		rectangleFigure.setLayoutManager(new StackLayout());
+		rectangleFigure.setPreferredSize(15, 15);
+		rectangleFigure.add(new Label(name));
+		rectangleFigure.setToolTip(new Label(name));
+		
+		return rectangleFigure;
 	}
 
 
+	
+	
 }
