@@ -31,5 +31,6 @@ Import-Package: org.eclipse.core.databinding.beans,
  org.eclipse.jface.text,
  org.eclipse.ui,
  org.eclipse.ui.part,
+ org.eclipse.ui.views.contentoutline,
  org.eclipse.ui.views.navigator,
  org.eclipse.wb.swt
