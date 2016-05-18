@@ -81,21 +81,21 @@
         <children xsi:type="menu:HandledMenuItem" xmi:id="_84JVsBtEEea5kf3wxK5uXw" elementId="com.project.kth.pwpr3d.app.handledmenuitem.validate" label="Validate"/>
       </children>
       <children xsi:type="menu:Menu" xmi:id="_pnJtIBr3Eea5kf3wxK5uXw" elementId="com.project.kth.pwpr3d.app.menu.windows" label="Windows">
-        <children xsi:type="menu:HandledMenuItem" xmi:id="_NeT2sBtFEea5kf3wxK5uXw" elementId="com.project.kth.pwpr3d.app.handledmenuitem.1"/>
-        <children xsi:type="menu:HandledMenuItem" xmi:id="_NzuGABtFEea5kf3wxK5uXw" elementId="com.project.kth.pwpr3d.app.handledmenuitem.2"/>
-        <children xsi:type="menu:HandledMenuItem" xmi:id="_OIO9cBtFEea5kf3wxK5uXw" elementId="com.project.kth.pwpr3d.app.handledmenuitem.3"/>
-        <children xsi:type="menu:HandledMenuItem" xmi:id="_OetjwBtFEea5kf3wxK5uXw" elementId="com.project.kth.pwpr3d.app.handledmenuitem.4"/>
-        <children xsi:type="menu:HandledMenuItem" xmi:id="_Oz2GQBtFEea5kf3wxK5uXw" elementId="com.project.kth.pwpr3d.app.handledmenuitem.5"/>
-        <children xsi:type="menu:HandledMenuItem" xmi:id="_PNbD4BtFEea5kf3wxK5uXw" elementId="com.project.kth.pwpr3d.app.handledmenuitem.6"/>
-        <children xsi:type="menu:HandledMenuItem" xmi:id="_Plp9sBtFEea5kf3wxK5uXw" elementId="com.project.kth.pwpr3d.app.handledmenuitem.7"/>
-        <children xsi:type="menu:HandledMenuItem" xmi:id="_P40KQBtFEea5kf3wxK5uXw" elementId="com.project.kth.pwpr3d.app.handledmenuitem.8"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_NeT2sBtFEea5kf3wxK5uXw" elementId="com.project.kth.pwpr3d.app.handledmenuitem.model" label="Model"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_NzuGABtFEea5kf3wxK5uXw" elementId="com.project.kth.pwpr3d.app.handledmenuitem.property" label="Property"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_OIO9cBtFEea5kf3wxK5uXw" elementId="com.project.kth.pwpr3d.app.handledmenuitem.outline" label="Outline"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_OetjwBtFEea5kf3wxK5uXw" elementId="com.project.kth.pwpr3d.app.handledmenuitem.navigator" label="Navigator"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_Oz2GQBtFEea5kf3wxK5uXw" elementId="com.project.kth.pwpr3d.app.handledmenuitem.palette" label="Palette"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_PNbD4BtFEea5kf3wxK5uXw" elementId="com.project.kth.pwpr3d.app.handledmenuitem.visualizer" label="Visualizer"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_Plp9sBtFEea5kf3wxK5uXw" elementId="com.project.kth.pwpr3d.app.handledmenuitem.hint" label="Hint"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_P40KQBtFEea5kf3wxK5uXw" elementId="com.project.kth.pwpr3d.app.handledmenuitem.validator" label="Validator"/>
         <children xsi:type="menu:MenuSeparator" xmi:id="_Q55MwBtFEea5kf3wxK5uXw" elementId="com.project.kth.pwpr3d.app.menuseparator.9"/>
-        <children xsi:type="menu:Menu" xmi:id="_TWbgoBtFEea5kf3wxK5uXw" elementId="com.project.kth.pwpr3d.app.menu.0">
+        <children xsi:type="menu:Menu" xmi:id="_TWbgoBtFEea5kf3wxK5uXw" elementId="com.project.kth.pwpr3d.app.menu.editor" label="Editor">
           <children xsi:type="menu:HandledMenuItem" xmi:id="_UVJLoBtFEea5kf3wxK5uXw" elementId="com.project.kth.pwpr3d.app.handledmenuitem.9"/>
           <children xsi:type="menu:HandledMenuItem" xmi:id="_VVoYQBtFEea5kf3wxK5uXw" elementId="com.project.kth.pwpr3d.app.handledmenuitem.10"/>
         </children>
-        <children xsi:type="menu:HandledMenuItem" xmi:id="_XBD_UBtFEea5kf3wxK5uXw" elementId="com.project.kth.pwpr3d.app.handledmenuitem.11"/>
-        <children xsi:type="menu:HandledMenuItem" xmi:id="_Xa_iQBtFEea5kf3wxK5uXw" elementId="com.project.kth.pwpr3d.app.handledmenuitem.12"/>
+        <children xsi:type="menu:MenuSeparator" xmi:id="_1u9LsBzUEeaM5MXm2s1RZA" elementId="com.project.kth.pwpr3d.app.menuseparator.13"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_2T0zUBzUEeaM5MXm2s1RZA" elementId="com.project.kth.pwpr3d.app.handledmenuitem.navigator" label="Navigator"/>
       </children>
       <children xsi:type="menu:Menu" xmi:id="_6wlLjsgZEeSyMNYR5xypkQ" elementId="help" label="Help">
         <children xsi:type="menu:HandledMenuItem" xmi:id="_6wlLj8gZEeSyMNYR5xypkQ" elementId="com.project.kth.pwpr3d.app.handleditem.about" label="Welcome" command="_6wlLhsgZEeSyMNYR5xypkQ"/>
@@ -121,12 +121,12 @@
         <children xsi:type="menu:HandledToolItem" xmi:id="_J2V_kBtHEea5kf3wxK5uXw" elementId="com.project.kth.pwpr3d.app.handledtoolitem.copy" label="Copy" iconURI="platform:/plugin/com.project.kth.pwpr3d.app/icons/icons/page_copy.png"/>
         <children xsi:type="menu:HandledToolItem" xmi:id="_KlTXUBtHEea5kf3wxK5uXw" elementId="com.project.kth.pwpr3d.app.handledtoolitem.paste" label="Paste" iconURI="platform:/plugin/com.project.kth.pwpr3d.app/icons/icons/page_paste.png"/>
         <children xsi:type="menu:HandledToolItem" xmi:id="_MbPlQBtHEea5kf3wxK5uXw" elementId="com.project.kth.pwpr3d.app.handledtoolitem.delete" label="Delete" iconURI="platform:/plugin/com.project.kth.pwpr3d.app/icons/icons/icons/elcl16/delete_edit.png"/>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_MzXKUBtHEea5kf3wxK5uXw" elementId="com.project.kth.pwpr3d.app.handledtoolitem.models" label="Models"/>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_NiW-UBtHEea5kf3wxK5uXw" elementId="com.project.kth.pwpr3d.app.handledtoolitem.property" label="Property"/>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_O4fDwBtHEea5kf3wxK5uXw" elementId="com.project.kth.pwpr3d.app.handledtoolitem.outliine" label="OutLine"/>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_PxhkkBtHEea5kf3wxK5uXw" elementId="com.project.kth.pwpr3d.app.handledtoolitem.navigator" label="Navigator"/>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_QcbiwBtHEea5kf3wxK5uXw" elementId="com.project.kth.pwpr3d.app.handledtoolitem.detached" label="Detached"/>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_Q7EmkBtHEea5kf3wxK5uXw" elementId="com.project.kth.pwpr3d.app.handledtoolitem.visualizer" label="Visualizer"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_MzXKUBtHEea5kf3wxK5uXw" elementId="com.project.kth.pwpr3d.app.handledtoolitem.models" label="Models" iconURI="platform:/plugin/com.project.kth.pwpr3d.app/icons/icons/models.gif"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_NiW-UBtHEea5kf3wxK5uXw" elementId="com.project.kth.pwpr3d.app.handledtoolitem.property" label="Property" iconURI="platform:/plugin/com.project.kth.pwpr3d.app/icons/icons/icons/elcl16/properties.png"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_O4fDwBtHEea5kf3wxK5uXw" elementId="com.project.kth.pwpr3d.app.handledtoolitem.outliine" label="OutLine" iconURI="platform:/plugin/com.project.kth.pwpr3d.app/icons/icons/icons/full/eview16/outline_co.png"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_PxhkkBtHEea5kf3wxK5uXw" elementId="com.project.kth.pwpr3d.app.handledtoolitem.navigator" label="Navigator" iconURI="platform:/plugin/com.project.kth.pwpr3d.app/icons/navigator-16.png"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_QcbiwBtHEea5kf3wxK5uXw" elementId="com.project.kth.pwpr3d.app.handledtoolitem.detached" label="Detached Palette" iconURI="platform:/plugin/com.project.kth.pwpr3d.app/icons/palette.png"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_Q7EmkBtHEea5kf3wxK5uXw" elementId="com.project.kth.pwpr3d.app.handledtoolitem.visualizer" label="Visualizer" iconURI="platform:/plugin/com.project.kth.pwpr3d.app/icons/icons/icons/welcome16.gif"/>
       </children>
     </trimBars>
   </children>
