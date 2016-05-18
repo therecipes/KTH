@@ -98,7 +98,16 @@
         <children xsi:type="menu:HandledMenuItem" xmi:id="_Xa_iQBtFEea5kf3wxK5uXw" elementId="com.project.kth.pwpr3d.app.handledmenuitem.12"/>
       </children>
       <children xsi:type="menu:Menu" xmi:id="_6wlLjsgZEeSyMNYR5xypkQ" elementId="help" label="Help">
-        <children xsi:type="menu:HandledMenuItem" xmi:id="_6wlLj8gZEeSyMNYR5xypkQ" elementId="com.project.kth.pwpr3d.app.handleditem.about" label="About" command="_6wlLhsgZEeSyMNYR5xypkQ"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_6wlLj8gZEeSyMNYR5xypkQ" elementId="com.project.kth.pwpr3d.app.handleditem.about" label="Welcome" command="_6wlLhsgZEeSyMNYR5xypkQ"/>
+        <children xsi:type="menu:MenuSeparator" xmi:id="_7RTfIBzCEeaM48Xm2s1RZA" elementId="com.project.kth.pwpr3d.app.menuseparator.10"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_8ZiSgBzCEeaM48Xm2s1RZA" elementId="com.project.kth.pwpr3d.app.handledmenuitem.helpcontent" label="Help Content" iconURI="platform:/plugin/com.project.kth.pwpr3d.app/icons/icons/icons/etool16/help.gif"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_9C6msBzCEeaM48Xm2s1RZA" elementId="com.project.kth.pwpr3d.app.handledmenuitem.search" label="Search" iconURI="platform:/plugin/com.project.kth.pwpr3d.app/icons/icons/icons/etool16/find.png"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_9bllYBzCEeaM48Xm2s1RZA" elementId="com.project.kth.pwpr3d.app.handledmenuitem.dynamichelp" label="Dynamic Help"/>
+        <children xsi:type="menu:MenuSeparator" xmi:id="_-jfooBzCEeaM48Xm2s1RZA" elementId="com.project.kth.pwpr3d.app.menuseparator.11"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="__dRJQBzCEeaM48Xm2s1RZA" elementId="com.project.kth.pwpr3d.app.handledmenuitem.checkforupdate" label="Check For Update"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_ATWcsBzDEeaM48Xm2s1RZA" elementId="com.project.kth.pwpr3d.app.handledmenuitem.resettodefault" label="Reset to Default"/>
+        <children xsi:type="menu:MenuSeparator" xmi:id="_DacJcBzDEeaM48Xm2s1RZA" elementId="com.project.kth.pwpr3d.app.menuseparator.12"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_D5mxsBzDEeaM48Xm2s1RZA" elementId="com.project.kth.pwpr3d.app.handledmenuitem.aboutpwgpd3analysis" label="About PWGPD3 Analysis" iconURI="platform:/plugin/com.project.kth.pwpr3d.app/icons/KTH.png"/>
       </children>
     </mainMenu>
     <trimBars xmi:id="_6wlLlcgZEeSyMNYR5xypkQ" elementId="com.project.kth.pwpr3d.app.trimbar.top">
