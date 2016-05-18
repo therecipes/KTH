@@ -64,7 +64,7 @@
         <children xsi:type="menu:HandledMenuItem" xmi:id="_QKpd8BtBEea5kf3wxK5uXw" elementId="com.project.kth.pwpr3d.app.handledmenuitem.cut" label="Cut" iconURI="platform:/plugin/com.project.kth.pwpr3d.app/icons/icons/icons/full/etool16/cut_edit.png"/>
         <children xsi:type="menu:HandledMenuItem" xmi:id="_QidhABtBEea5kf3wxK5uXw" elementId="com.project.kth.pwpr3d.app.handledmenuitem.copy" label="Copy" iconURI="platform:/plugin/com.project.kth.pwpr3d.app/icons/icons/page_copy.png"/>
         <children xsi:type="menu:HandledMenuItem" xmi:id="_RN9VEBtBEea5kf3wxK5uXw" elementId="com.project.kth.pwpr3d.app.handledmenuitem.paste" label="Paste" iconURI="platform:/plugin/com.project.kth.pwpr3d.app/icons/icons/page_paste.png"/>
-        <children xsi:type="menu:HandledMenuItem" xmi:id="_RjSr4BtBEea5kf3wxK5uXw" elementId="com.project.kth.pwpr3d.app.handledmenuitem.delete" label="Delete"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_RjSr4BtBEea5kf3wxK5uXw" elementId="com.project.kth.pwpr3d.app.handledmenuitem.delete" label="Delete" iconURI="platform:/plugin/com.project.kth.pwpr3d.app/icons/icons/icons/elcl16/delete_edit.png"/>
         <children xsi:type="menu:MenuSeparator" xmi:id="_WfL-IBtBEea5kf3wxK5uXw" elementId="com.project.kth.pwpr3d.app.menuseparator.5"/>
         <children xsi:type="menu:HandledMenuItem" xmi:id="_X7MpIBtBEea5kf3wxK5uXw" elementId="com.project.kth.pwpr3d.app.handledmenuitem.duplication" label="Duplication"/>
         <children xsi:type="menu:HandledMenuItem" xmi:id="_YeKzUBtBEea5kf3wxK5uXw" elementId="com.project.kth.pwpr3d.app.handledmenuitem.rename" label="Rename"/>
@@ -116,11 +116,11 @@
         <children xsi:type="menu:HandledToolItem" xmi:id="_6wlLmMgZEeSyMNYR5xypkQ" elementId="com.project.kth.pwpr3d.app.handleditem.trimbar.top.save" label="Open Model" iconURI="platform:/plugin/com.project.kth.pwpr3d.app/icons/icons/Open 18 n p.png" command="_6wlLg8gZEeSyMNYR5xypkQ"/>
         <children xsi:type="menu:HandledToolItem" xmi:id="_ZQSagBtGEea5kf3wxK5uXw" elementId="com.project.kth.pwpr3d.app.handledtoolitem.savemodel" label="Save Model" iconURI="platform:/plugin/com.project.kth.pwpr3d.app/icons/icons/icons/full/etool16/save_edit.png"/>
         <children xsi:type="menu:HandledToolItem" xmi:id="_tDzoUBtGEea5kf3wxK5uXw" elementId="com.project.kth.pwpr3d.app.handledtoolitem.undo" label="Undo" iconURI="platform:/plugin/com.project.kth.pwpr3d.app/icons/icons/icons/full/etool16/undo_edit.png"/>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_Ij9KoBtHEea5kf3wxK5uXw" elementId="com.project.kth.pwpr3d.app.handledtoolitem.redo" label="Redo"/>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_JNRNYBtHEea5kf3wxK5uXw" elementId="com.project.kth.pwpr3d.app.handledtoolitem.cut" label="Cut"/>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_J2V_kBtHEea5kf3wxK5uXw" elementId="com.project.kth.pwpr3d.app.handledtoolitem.copy" label="Copy"/>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_KlTXUBtHEea5kf3wxK5uXw" elementId="com.project.kth.pwpr3d.app.handledtoolitem.paste" label="Paste"/>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_MbPlQBtHEea5kf3wxK5uXw" elementId="com.project.kth.pwpr3d.app.handledtoolitem.delete" label="Delete"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_Ij9KoBtHEea5kf3wxK5uXw" elementId="com.project.kth.pwpr3d.app.handledtoolitem.redo" label="Redo" iconURI="platform:/plugin/com.project.kth.pwpr3d.app/icons/icons/icons/full/etool16/redo_edit.png"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_JNRNYBtHEea5kf3wxK5uXw" elementId="com.project.kth.pwpr3d.app.handledtoolitem.cut" label="Cut" iconURI="platform:/plugin/com.project.kth.pwpr3d.app/icons/icons/icons/full/etool16/cut_edit.png"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_J2V_kBtHEea5kf3wxK5uXw" elementId="com.project.kth.pwpr3d.app.handledtoolitem.copy" label="Copy" iconURI="platform:/plugin/com.project.kth.pwpr3d.app/icons/icons/page_copy.png"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_KlTXUBtHEea5kf3wxK5uXw" elementId="com.project.kth.pwpr3d.app.handledtoolitem.paste" label="Paste" iconURI="platform:/plugin/com.project.kth.pwpr3d.app/icons/icons/page_paste.png"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_MbPlQBtHEea5kf3wxK5uXw" elementId="com.project.kth.pwpr3d.app.handledtoolitem.delete" label="Delete" iconURI="platform:/plugin/com.project.kth.pwpr3d.app/icons/icons/icons/elcl16/delete_edit.png"/>
         <children xsi:type="menu:HandledToolItem" xmi:id="_MzXKUBtHEea5kf3wxK5uXw" elementId="com.project.kth.pwpr3d.app.handledtoolitem.models" label="Models"/>
         <children xsi:type="menu:HandledToolItem" xmi:id="_NiW-UBtHEea5kf3wxK5uXw" elementId="com.project.kth.pwpr3d.app.handledtoolitem.property" label="Property"/>
         <children xsi:type="menu:HandledToolItem" xmi:id="_O4fDwBtHEea5kf3wxK5uXw" elementId="com.project.kth.pwpr3d.app.handledtoolitem.outliine" label="OutLine"/>
