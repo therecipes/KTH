@@ -72,7 +72,10 @@ public MyDropTargetListener(Composite parent, DropTarget dropTarget, Figure pane
 	public void drop(DropTargetEvent event) {
 		// TODO Auto-generated method stub
 		// retrieve the stored index
-		int sourceIndex = Integer.valueOf(event.data.toString());
+		
+		//int index = (Integer)event.getSource();
+		
+		int sourceIndex = (Integer)event.getSource();
 
 		// compute the index of target control
 		Control targetControl = target.getControl();
@@ -106,8 +109,8 @@ public MyDropTargetListener(Composite parent, DropTarget dropTarget, Figure pane
 	@Override
 	public void dropAccept(DropTargetEvent event) {
 		// TODO Auto-generated method stub
-		
-		int sourceIndex = Integer.valueOf(event.data.toString());
+		//int index = (int)event.getSource();
+		int sourceIndex = (Integer)event.getSource();
 
 		if (TextTransfer.getInstance().isSupportedType(event.currentDataType)) {
 			String d = (String) TextTransfer.getInstance().nativeToJava(event.currentDataType);
