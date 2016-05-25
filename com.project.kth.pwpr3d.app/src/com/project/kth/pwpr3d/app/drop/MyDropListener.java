@@ -1,11 +1,10 @@
 package com.project.kth.pwpr3d.app.drop;
 
-import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.jface.viewers.ViewerDropAdapter;
 import org.eclipse.swt.dnd.DropTargetEvent;
-import org.eclipse.swt.dnd.DropTargetListener;
 import org.eclipse.swt.dnd.TransferData;
+import org.eclipse.swt.widgets.Composite;
 
 import com.project.kth.pwpr3d.app.dragndrop.ContentProviderTree;
 
@@ -48,8 +47,8 @@ public class MyDropListener extends ViewerDropAdapter {
 	// viewer by calling its setInput method.
 	@Override
 	public boolean performDrop(Object data) {
-		ContentProviderTree.INSTANCE.getModel().add(data.toString());
-		viewer.setInput(ContentProviderTree.INSTANCE.getModel());
+		ContentProviderTree.INSTANCE.getModelString().add(data.toString());
+		viewer.setInput(ContentProviderTree.INSTANCE.getModelString());
 		return false;
 	}
 

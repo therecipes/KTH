@@ -23,6 +23,7 @@ public class TreeContentProvider implements ITreeContentProvider {
 		return false;
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public Object[] getElements(Object inputElement) {
 		List<String> list = (List<String>) inputElement;

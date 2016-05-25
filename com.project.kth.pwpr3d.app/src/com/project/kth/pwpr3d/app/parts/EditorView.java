@@ -1,7 +1,6 @@
 package com.project.kth.pwpr3d.app.parts;
 
 import javax.annotation.PostConstruct;
-import javax.inject.Inject;
 
 import org.eclipse.draw2d.ColorConstants;
 import org.eclipse.draw2d.Figure;
