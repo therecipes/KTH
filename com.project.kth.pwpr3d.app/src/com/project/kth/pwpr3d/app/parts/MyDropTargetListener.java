@@ -8,6 +8,7 @@ import org.eclipse.draw2d.MouseMotionListener;
 import org.eclipse.draw2d.RectangleFigure;
 import org.eclipse.draw2d.geometry.Point;
 import org.eclipse.draw2d.geometry.Rectangle;
+import org.eclipse.swt.SWT;
 import org.eclipse.swt.dnd.DND;
 import org.eclipse.swt.dnd.DropTarget;
 import org.eclipse.swt.dnd.DropTargetEvent;
@@ -18,6 +19,8 @@ import org.eclipse.swt.widgets.Canvas;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Label;
+import org.eclipse.swt.widgets.Table;
+import org.eclipse.swt.widgets.TableItem;
 
 import com.project.kth.pwpr3d.app.dragndrop.Dragger;
 
@@ -30,22 +33,45 @@ public class MyDropTargetListener extends MouseMotionListener.Stub implements Dr
 	String[] imgNames = { "router.png", "tv.png", "switch.png", "printer.png", "server.png", "splitter.png",
 			"laptop.png", "workstation.png", "transformer.png" };
 	private Figure panel;
-public MyDropTargetListener(Composite parent, DropTarget dropTarget, Figure panel) {
+	Table dropTable;
+
+	public MyDropTargetListener(Composite parent, DropTarget dropTarget, Figure panel) {
 		// TODO Auto-generated constructor stub
 		this.parentComposite = parent;
 		this.target = dropTarget;
 		this.panel = panel;
-
+		dropTable = new Table(parent, SWT.BORDER);
+		for (int i = 0; i < 10; i++) {
+			TableItem item = new TableItem(dropTable, SWT.NONE);
+			item.setText(path + imgNames[i]);
+		}
 	}
 
 	@Override
 	public void dragEnter(DropTargetEvent event) {
 		// TODO Auto-generated method stub
+		/*
+		 * if (event.detail == DND.DROP_DEFAULT) { if ((event.operations &
+		 * DND.DROP_COPY) != 0) { event.detail = DND.DROP_COPY; } else {
+		 * event.detail = DND.DROP_NONE; } }
+		 */
+
 		if (event.detail == DND.DROP_DEFAULT) {
 			if ((event.operations & DND.DROP_COPY) != 0) {
 				event.detail = DND.DROP_COPY;
 			} else {
 				event.detail = DND.DROP_NONE;
+			}
+		}
+		// will accept text but prefer to have files dropped
+		for (int i = 0; i < event.dataTypes.length; i++) {
+			if (EditorView.imageTransfer.isSupportedType(event.dataTypes[i])) {
+				event.currentDataType = event.dataTypes[i];
+				// files should only be copied
+				if (event.detail != DND.DROP_COPY) {
+					event.detail = DND.DROP_NONE;
+				}
+				break;
 			}
 		}
 	}
@@ -59,58 +85,55 @@ public MyDropTargetListener(Composite parent, DropTarget dropTarget, Figure pane
 	@Override
 	public void dragOperationChanged(DropTargetEvent event) {
 		// TODO Auto-generated method stub
-
+		if (event.detail == DND.DROP_DEFAULT) {
+			if ((event.operations & DND.DROP_COPY) != 0) {
+				event.detail = DND.DROP_COPY;
+			} else {
+				event.detail = DND.DROP_NONE;
+			}
+		}
+		if (EditorView.imageTransfer.isSupportedType(event.currentDataType)) {
+			if (event.detail != DND.DROP_COPY) {
+				event.detail = DND.DROP_NONE;
+			}
+		}
 	}
 
 	@Override
 	public void dragOver(DropTargetEvent event) {
 		// TODO Auto-generated method stub
-
+		event.feedback = DND.FEEDBACK_SELECT | DND.FEEDBACK_SCROLL;
+		if (EditorView.textTransfer.isSupportedType(event.currentDataType)) {
+			// NOTE: on unsupported platforms this will return null
+			Object o = EditorView.textTransfer.nativeToJava(event.currentDataType);
+			String t = (String) o;
+			if (t != null)
+				System.out.println(t);
+		}
 	}
 
 	@Override
 	public void drop(DropTargetEvent event) {
 		// TODO Auto-generated method stub
-		// retrieve the stored index
-		
-		//int index = (Integer)event.getSource();
-		
-		int sourceIndex = (Integer)event.getSource();
-
-		// compute the index of target control
-		Control targetControl = target.getControl();
-		int targetIndex = -1;
-		for (int i = 0; i < parentComposite.getChildren().length; i++) {
-			if (parentComposite.getChildren()[i].equals(targetControl)) {
-				targetIndex = i;
-				break;
+		if (EditorView.textTransfer.isSupportedType(event.currentDataType)) {
+			String text = (String) event.data;
+			TableItem item = new TableItem(dropTable, SWT.NONE);
+			item.setText(text);
+		}
+		if (EditorView.imageTransfer.isSupportedType(event.currentDataType)) {
+			Image[] files = (Image[]) event.data;
+			for (int i = 0; i < files.length; i++) {
+				TableItem item = new TableItem(dropTable, SWT.NONE);
+				item.setImage(files[i]);
 			}
 		}
-
-		Control sourceControl = parentComposite.getChildren()[sourceIndex];
-		// do not do anything if the dragged photo is dropped at the same
-		// position
-		if (targetIndex == sourceIndex)
-			return;
-
-		// if dragged from left to right
-		// shift the old picture to the left
-		if (targetIndex > sourceIndex)
-			sourceControl.moveBelow(targetControl);
-		// if dragged from right to left
-		// shift the old picture to the right
-		else
-			sourceControl.moveAbove(targetControl);
-
-		// repaint the parent composite
-		parentComposite.layout();
 	}
 
 	@Override
 	public void dropAccept(DropTargetEvent event) {
 		// TODO Auto-generated method stub
-		//int index = (int)event.getSource();
-		int sourceIndex = (Integer)event.getSource();
+		// int index = (int)event.getSource();
+		int sourceIndex = (Integer) event.getSource();
 
 		if (TextTransfer.getInstance().isSupportedType(event.currentDataType)) {
 			String d = (String) TextTransfer.getInstance().nativeToJava(event.currentDataType);

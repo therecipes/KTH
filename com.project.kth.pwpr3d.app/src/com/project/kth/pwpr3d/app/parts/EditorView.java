@@ -9,6 +9,7 @@ import org.eclipse.draw2d.XYLayout;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.dnd.DND;
 import org.eclipse.swt.dnd.DropTarget;
+import org.eclipse.swt.dnd.ImageTransfer;
 import org.eclipse.swt.dnd.TextTransfer;
 import org.eclipse.swt.dnd.Transfer;
 import org.eclipse.swt.layout.GridData;
@@ -18,9 +19,12 @@ import org.eclipse.swt.widgets.Label;
 
 public class EditorView {
 
+	public static ImageTransfer imageTransfer;
+	public static TextTransfer textTransfer;
 	Label[] lblImage = new Label[9];
 	private Figure panel;
 	PaletteView paletteView;
+	private Transfer[] types;
 
 	/*
 	 * public EditorView(Label label) { // TODO Auto-generated constructor stub
@@ -36,14 +40,14 @@ public class EditorView {
 		LightweightSystem lws = new LightweightSystem(canvas); //
 		panel = new Figure(); //
 		lws.setContents(panel);
-		
-		
-			
-			DropTarget target = new DropTarget(canvas, DND.DROP_COPY | DND.DROP_DEFAULT);
-			target.setTransfer(new Transfer[] { TextTransfer.getInstance() });
-			// add a drop listener
-			target.addDropListener(new MyDropTargetListener(parent, target, panel));
-		
+
+		DropTarget target = new DropTarget(canvas, DND.DROP_COPY | DND.DROP_DEFAULT);
+		textTransfer = TextTransfer.getInstance();
+		imageTransfer = ImageTransfer.getInstance();
+		types = new Transfer[] { imageTransfer, textTransfer };
+		target.setTransfer(types);
+		// add a drop listener
+		target.addDropListener(new MyDropTargetListener(parent, target, panel));
 
 		// createImageDropListener( canvas);
 		/*
