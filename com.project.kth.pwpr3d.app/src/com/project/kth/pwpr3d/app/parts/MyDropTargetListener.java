@@ -1,5 +1,9 @@
 package com.project.kth.pwpr3d.app.parts;
 
+import java.net.URL;
+
+import org.eclipse.core.runtime.FileLocator;
+import org.eclipse.core.runtime.Path;
 import org.eclipse.draw2d.ColorConstants;
 import org.eclipse.draw2d.Figure;
 import org.eclipse.draw2d.MouseEvent;
@@ -8,6 +12,8 @@ import org.eclipse.draw2d.MouseMotionListener;
 import org.eclipse.draw2d.RectangleFigure;
 import org.eclipse.draw2d.geometry.Point;
 import org.eclipse.draw2d.geometry.Rectangle;
+import org.eclipse.jface.resource.ImageDescriptor;
+import org.eclipse.jface.viewers.LabelProvider;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.dnd.DND;
 import org.eclipse.swt.dnd.DropTarget;
@@ -21,19 +27,25 @@ import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableItem;
+import org.osgi.framework.Bundle;
+import org.osgi.framework.FrameworkUtil;
 
 import com.project.kth.pwpr3d.app.dragndrop.Dragger;
 
 public class MyDropTargetListener extends MouseMotionListener.Stub implements DropTargetListener, MouseListener {
-
+	
+    private static LabelProvider label;
 	private Composite parentComposite;
 	private DropTarget target;
-
+	private static Image FOLDER = label.getImage("folder.png");
+	private static Image FILE = label.getImage("File.png");
 	String path = System.getProperty("user.dir") + "/images/";
 	String[] imgNames = { "router.png", "tv.png", "switch.png", "printer.png", "server.png", "splitter.png",
 			"laptop.png", "workstation.png", "transformer.png" };
 	private Figure panel;
 	Table dropTable;
+	
+	
 
 	public MyDropTargetListener(Composite parent, DropTarget dropTarget, Figure panel) {
 		// TODO Auto-generated constructor stub
