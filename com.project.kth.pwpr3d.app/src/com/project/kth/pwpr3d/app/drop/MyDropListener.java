@@ -15,6 +15,7 @@ public class MyDropListener extends ViewerDropAdapter {
 	public MyDropListener(Viewer viewer) {
 		super(viewer);
 		this.viewer = viewer;
+		//Constructor
 	}
 
 	@Override
