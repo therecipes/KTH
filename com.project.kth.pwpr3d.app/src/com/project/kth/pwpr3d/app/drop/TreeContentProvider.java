@@ -2,9 +2,9 @@ package com.project.kth.pwpr3d.app.drop;
 
 import java.util.List;
 
-import org.eclipse.jface.viewers.IContentProvider;
 import org.eclipse.jface.viewers.ITreeContentProvider;
 import org.eclipse.jface.viewers.Viewer;
+import org.eclipse.swt.graphics.Image;
 
 public class TreeContentProvider implements ITreeContentProvider {
 
@@ -26,7 +26,7 @@ public class TreeContentProvider implements ITreeContentProvider {
 	@SuppressWarnings("unchecked")
 	@Override
 	public Object[] getElements(Object inputElement) {
-		List<String> list = (List<String>) inputElement;
+		List<Image> list = (List<Image>) inputElement;
 		return list.toArray();
 	}
 

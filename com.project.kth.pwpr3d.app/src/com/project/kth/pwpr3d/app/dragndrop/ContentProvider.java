@@ -8,8 +8,8 @@ import org.eclipse.swt.graphics.Image;
 public enum ContentProvider {
 	INSTANCE;
 	String path = System.getProperty("user.dir") + "/images/";
-	String[] imgNames = { "router.png", "tv.png", "switch.png", "printer.png", "server.png", "splitter.png",
-			"laptop.png", "workstation.png", "transformer.png" };
+	String[] imgNames = { "router.gif", "tv.gif", "switch.gif", "printer.gif", "server.gif", "splitter.gif",
+			"laptop.gif", "workstation.gif", "transformer.gif" };
 	//private Image[] img;
 
 	public List<Todo> getModel() {

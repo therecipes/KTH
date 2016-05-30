@@ -4,7 +4,7 @@ import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.jface.viewers.ViewerDropAdapter;
 import org.eclipse.swt.dnd.DropTargetEvent;
 import org.eclipse.swt.dnd.TransferData;
-import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.graphics.Image;
 
 import com.project.kth.pwpr3d.app.dragndrop.ContentProviderTree;
 
@@ -20,7 +20,7 @@ public class MyDropListener extends ViewerDropAdapter {
 	@Override
 	public void drop(DropTargetEvent event) {
 		int location = this.determineLocation(event);
-		String target = (String) determineTarget(event);
+		Image target = (Image) determineTarget(event);
 		String translatedLocation = "";
 		switch (location) {
 		case 1:
@@ -47,8 +47,8 @@ public class MyDropListener extends ViewerDropAdapter {
 	// viewer by calling its setInput method.
 	@Override
 	public boolean performDrop(Object data) {
-		ContentProviderTree.INSTANCE.getModelString().add(data.toString());
-		viewer.setInput(ContentProviderTree.INSTANCE.getModelString());
+		ContentProviderTree.INSTANCE.getModelImage().add((Image)data);
+		viewer.setInput(ContentProviderTree.INSTANCE.getModelImage());
 		return false;
 	}
 

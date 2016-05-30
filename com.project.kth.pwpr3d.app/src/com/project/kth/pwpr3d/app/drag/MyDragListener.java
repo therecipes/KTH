@@ -1,10 +1,11 @@
 package com.project.kth.pwpr3d.app.drag;
 
-import org.eclipse.draw2d.ActionListener;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.swt.dnd.DragSourceEvent;
 import org.eclipse.swt.dnd.DragSourceListener;
+import org.eclipse.swt.dnd.FileTransfer;
+import org.eclipse.swt.dnd.ImageTransfer;
 import org.eclipse.swt.dnd.TextTransfer;
 
 import com.project.kth.pwpr3d.app.dragndrop.Todo;
@@ -28,9 +29,19 @@ public class MyDragListener implements DragSourceListener {
 		IStructuredSelection selection = viewer.getStructuredSelection();
 		Todo firstElement = (Todo) selection.getFirstElement();
 
-		if (TextTransfer.getInstance().isSupportedType(event.dataType)) {
-			event.data = firstElement.getShortDescription() + " " + firstElement.getLongDescription();
+		/*if (TextTransfer.getInstance().isSupportedType(event.dataType)) {
+			event.data = firstElement.getShortDescription();// + " " + firstElement.getLongDescription();
 		}
+		
+		if (FileTransfer.getInstance().isSupportedType(event.dataType)) {
+			event.data = firstElement.getShortDescription();// + " " + firstElement.getLongDescription();
+		}*/
+		
+		
+		if (FileTransfer.getInstance().isSupportedType(event.dataType) ||TextTransfer.getInstance().isSupportedType(event.dataType) ) {
+			event.data = firstElement.getShortDescription();// + " " + firstElement.getLongDescription();
+		}
+		
 
 	}
 
