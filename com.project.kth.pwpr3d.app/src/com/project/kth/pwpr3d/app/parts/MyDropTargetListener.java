@@ -157,7 +157,7 @@ public class MyDropTargetListener extends MouseMotionListener.Stub implements Dr
 			Rectangle rect = new Rectangle(droppoint.x, droppoint.y, 20, 20);
 			Rectangle rect2 = new Rectangle(droppoint.x, droppoint.y, 100, 25);
 			node1.setBounds(rect);
-			node1.setBackgroundColor(ColorConstants.cyan);
+			node1.setBackgroundColor(ColorConstants.darkBlue);
 
 			org.eclipse.draw2d.Label droppedName = new org.eclipse.draw2d.Label(d);
 			droppedName.setIcon(new Image(parentComposite.getDisplay(), path + imgNames[sourceIndex]));

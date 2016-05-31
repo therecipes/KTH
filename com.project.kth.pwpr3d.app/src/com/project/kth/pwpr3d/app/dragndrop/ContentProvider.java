@@ -20,41 +20,40 @@ import com.project.kth.pwpr3d.app.parts.mainCategory;
 public enum ContentProvider {
 	INSTANCE;
 	String path = System.getProperty("user.dir") + "/images/";
-	 static String[] imgNames = { "router.gif", "tv.gif", "switch.gif", "printer.gif", "server.gif", "splitter.gif",
+	static String[] imgNames = { "router.gif", "tv.gif", "switch.gif", "printer.gif", "server.gif", "splitter.gif",
 			"laptop.gif", "workstation.gif", "transformer.gif" };
-	 //private Image[] img;
+	// private Image[] img;
 
-	
-	static int length=imgNames.length;
-	private static Image[] FOLDER =new Image[length];
-	
-	
-	       
-			//new I getImage("folder.png");
+	static int length = imgNames.length;
+	private static Image[] FOLDER = new Image[length];
+
+	// new I getImage("folder.png");
 	private static Image FILE = getImage("File.png");
-	
+
 	public Image getImage(Object element) {
 		if (element instanceof mainCategory) {
-	  //return FOLDER;
+			// return FOLDER;
 		}
 		return FILE;
-		}
-		private static Image getImage(String file) {
+	}
+
+	private static Image getImage(String file) {
 		Bundle bundle = FrameworkUtil.getBundle(Todo.class);
 		URL url = FileLocator.find(bundle, new Path("icons/" + file), null);
 		ImageDescriptor image = ImageDescriptor.createFromURL(url);
 		return image.createImage();
-		}
+	}
+
 	public List<Todo> getModel() {
 		List<Todo> list = new ArrayList<>();
-		
+
 		for (int i = 0; i < imgNames.length; i++) {
 			FOLDER[i] = getImage(imgNames[i]);
-			//Image img = new Image(null, path + imgNames[i]);
-			Todo todo = new Todo(FOLDER[i], "");
+			// Image img = new Image(null, path + imgNames[i]);
+			Todo todo = new Todo(FOLDER[i], imgNames[i]);
 			list.add(todo);
-			
+
 		}
-	    return list;
-	  }
+		return list;
+	}
 }
