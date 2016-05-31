@@ -9,6 +9,8 @@ import org.eclipse.swt.dnd.DragSourceEvent;
 import org.eclipse.swt.dnd.DragSourceListener;
 import org.eclipse.swt.dnd.TextTransfer;
 import org.eclipse.swt.dnd.Transfer;
+import org.eclipse.swt.graphics.Image;
+import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
@@ -17,22 +19,34 @@ import org.eclipse.swt.widgets.Label;
 
 public class PalettePart {
 	// private Label[] lblLaptop; lblRouter, lblSwitch, lblConnector;
-	String[] lblName = { "Laptop", "Router", "Switch", "Connector", "Transformer", "TV", "Server", "Workstation", "Splitter" };
+	String[] lblName = {"Router", "TV", "Switch", "Printer", "Server", "Splitter",
+			"Laptop", "Workstation", "Transformer"};
 	private Label[] lblNetwork = new Label[lblName.length];
+	
+	static String[] imgNames = { "router.gif", "tv.gif", "switch.gif", "printer.gif", "server.gif", "splitter.gif",
+			"laptop.gif", "workstation.gif", "transformer.gif" };
+	String path = System.getProperty("user.dir") + "/images/";
 	
 	EditorPart editorpart;
 
 	@PostConstruct
 	public void createComposite(Composite parent) {
-		Group grpPalette = new Group(parent, SWT.NONE);
+		FillLayout fillLayout = new FillLayout();
+		fillLayout.type = SWT.HORIZONTAL;
+		parent.setLayout(fillLayout);
+		
+		Group grpPalette = new Group(parent, SWT.PUSH);
 		grpPalette.setText("Palette");
 		grpPalette.setLayout(new GridLayout());
 		grpPalette.setLayoutData(new GridData(SWT.BEGINNING, SWT.FILL, false, true));
+		grpPalette.pack();
 		
+		 
 		
 		for (int i = 0; i < lblName.length; i++) {
 			lblNetwork[i] = new Label(grpPalette, SWT.BORDER | SWT.HORIZONTAL | SWT.CENTER);
 			lblNetwork[i].setText(lblName[i]);
+			lblNetwork[i].setImage(new Image(null, path + imgNames[i]));
 			// ADDED A FINAL HERE!!
 			lblNetwork[i].setAlignment(SWT.CENTER);
 			createDragSourse(lblNetwork[i]);
