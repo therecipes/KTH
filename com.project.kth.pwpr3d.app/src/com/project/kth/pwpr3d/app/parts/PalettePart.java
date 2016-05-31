@@ -17,7 +17,7 @@ import org.eclipse.swt.widgets.Label;
 
 public class PalettePart {
 	// private Label[] lblLaptop; lblRouter, lblSwitch, lblConnector;
-	String[] lblName = { "Laptop", "Router", "Switch", "Connector", "Transformer", "TV", "Server" };
+	String[] lblName = { "Laptop", "Router", "Switch", "Connector", "Transformer", "TV", "Server", "Workstation", "Splitter" };
 	private Label[] lblNetwork = new Label[lblName.length];
 	
 	EditorPart editorpart;

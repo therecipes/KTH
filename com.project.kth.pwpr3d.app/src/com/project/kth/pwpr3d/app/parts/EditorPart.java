@@ -47,7 +47,7 @@ public class EditorPart {
 	static int length = imgNames.length;
 	private static Image[] FOLDER = new Image[length];
 	String path = System.getProperty("user.dir") + "/images/";
-	Label label = new Label();
+	Label label[] = new Label[length];
 
 	@PostConstruct
 	public void createComposite(Composite parent) {
@@ -135,27 +135,35 @@ public class EditorPart {
 					droppedName.setLocation(new Point(droppoint.x, droppoint.y)); // draw2d.
 																					// point
 					droppedName.setBounds(rect2);
-
+					System.out.println("d:" + d);
 					// node1.add(droppedName);
-					if (d.equals("router")) {
-						label.setIcon(new Image(null, path + "router.gif"));
-					} else if (d.equals("tv")) {
-						label.setIcon(new Image(null, path + "tv.gif"));
-					} else if (d.equals("switch")) {
-						label.setIcon(new Image(null, path + "switch.gif"));
-					} else if (d.equals("printer")) {
-						label.setIcon(new Image(null, path + "printer.gif"));
-					} else if (d.equals("server")) {
-						label.setIcon(new Image(null, path + "server.gif"));
-					} else if (d.equals("splitter")) {
-						label.setIcon(new Image(null, path + "splitter.gif"));
-					} else if (d.equals("laptop")) {
-						label.setIcon(new Image(null, path + "laptop.gif"));
-					} else if (d.equals("workstation")) {
-						label.setIcon(new Image(null, path + "workstation.gif"));
-					} else if (d.equals("transformer")) {
-						label.setIcon(new Image(null, path + "transformer.gif"));
+					 
+					for (int i = 0; i < imgNames.length; i++) {
+						label[i]= new Label();
+						if (d.equals("Router")) {
+							
+							label[i].setIcon(new Image(null, path + "router.gif"));
+						} else if (d.equals("TV")) {
+							label[i].setIcon(new Image(null, path + "tv.gif"));
+						} else if (d.equals("Switch")) {
+							label[i].setIcon(new Image(null, path + "switch.gif"));
+						} else if (d.equals("Printer")) {
+							label[i].setIcon(new Image(null, path + "printer.gif"));
+						} else if (d.equals("Server")) {
+							label[i].setIcon(new Image(null, path + "server.gif"));
+						} else if (d.equals("Splitter")) {
+							label[i].setIcon(new Image(null, path + "splitter.gif"));
+						} else if (d.equals("Laptop")) {
+							label[i].setIcon(new Image(null, path + "laptop.gif"));
+						} else if (d.equals("Workstation")) {
+							label[i].setIcon(new Image(null, path + "workstation.gif"));
+						} else if (d.equals("Transformer")) {
+							label[i].setIcon(new Image(null, path + "transformer.gif"));
+						}
+						label[i].setBounds(rect);
+						node1.add(label[i]);
 					}
+
 					/*
 					 * String m = (String) TextTransfer.getInstance()
 					 * .nativeToJava(event.currentDataType);
@@ -164,9 +172,7 @@ public class EditorPart {
 					 * "Image path!"); label.setIcon(new Image(null, path));
 					 */
 
-					label.setBounds(rect);
 					// label.setText("I am a Router!");
-					node1.add(label);
 
 					panel.add(droppedName);
 					panel.add(node1);
