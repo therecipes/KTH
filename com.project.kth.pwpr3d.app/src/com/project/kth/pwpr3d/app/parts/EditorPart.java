@@ -142,23 +142,23 @@ public class EditorPart {
 						label[i]= new Label();
 						if (d.equals("Router")) {
 							
-							label[i].setIcon(new Image(null, path + "router.gif"));
+							label[i].setIcon(getImage("router.gif"));
 						} else if (d.equals("TV")) {
-							label[i].setIcon(new Image(null, path + "tv.gif"));
+							label[i].setIcon(getImage("tv.gif"));
 						} else if (d.equals("Switch")) {
-							label[i].setIcon(new Image(null, path + "switch.gif"));
+							label[i].setIcon(getImage("switch.gif"));
 						} else if (d.equals("Printer")) {
-							label[i].setIcon(new Image(null, path + "printer.gif"));
+							label[i].setIcon(getImage("printer.gif"));
 						} else if (d.equals("Server")) {
-							label[i].setIcon(new Image(null, path + "server.gif"));
+							label[i].setIcon(getImage("server.gif"));
 						} else if (d.equals("Splitter")) {
-							label[i].setIcon(new Image(null, path + "splitter.gif"));
+							label[i].setIcon(getImage("splitter.gif"));
 						} else if (d.equals("Laptop")) {
-							label[i].setIcon(new Image(null, path + "laptop.gif"));
+							label[i].setIcon(getImage("laptop.gif"));
 						} else if (d.equals("Workstation")) {
-							label[i].setIcon(new Image(null, path + "workstation.gif"));
+							label[i].setIcon(getImage("workstation.gif"));
 						} else if (d.equals("Transformer")) {
-							label[i].setIcon(new Image(null, path + "transformer.gif"));
+							label[i].setIcon(getImage("transformer.gif"));
 						}
 						label[i].setBounds(rect);
 						node1.add(label[i]);
