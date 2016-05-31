@@ -1,7 +1,12 @@
 package com.project.kth.pwpr3d.app.parts;
 
+import java.net.URL;
+
 import javax.annotation.PostConstruct;
 
+import org.eclipse.core.runtime.FileLocator;
+import org.eclipse.core.runtime.Path;
+import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.dnd.DND;
 import org.eclipse.swt.dnd.DragSource;
@@ -16,6 +21,10 @@ import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Label;
+import org.osgi.framework.Bundle;
+import org.osgi.framework.FrameworkUtil;
+
+import com.project.kth.pwpr3d.app.dragndrop.Todo;
 
 public class PalettePart {
 	// private Label[] lblLaptop; lblRouter, lblSwitch, lblConnector;
@@ -26,6 +35,9 @@ public class PalettePart {
 	static String[] imgNames = { "router.gif", "tv.gif", "switch.gif", "printer.gif", "server.gif", "splitter.gif",
 			"laptop.gif", "workstation.gif", "transformer.gif" };
 	String path = System.getProperty("user.dir") + "/images/";
+	
+	static int length = imgNames.length;
+	private static Image[] FOLDER = new Image[length];
 	
 	EditorPart editorpart;
 
@@ -46,13 +58,23 @@ public class PalettePart {
 		for (int i = 0; i < lblName.length; i++) {
 			lblNetwork[i] = new Label(grpPalette, SWT.BORDER | SWT.HORIZONTAL | SWT.CENTER);
 			lblNetwork[i].setText(lblName[i]);
-			lblNetwork[i].setImage(new Image(null, path + imgNames[i]));
+			FOLDER[i] = getImage(imgNames[i]);
+			
+			lblNetwork[i].setImage(FOLDER[i]);
 			// ADDED A FINAL HERE!!
 			lblNetwork[i].setAlignment(SWT.CENTER);
 			createDragSourse(lblNetwork[i]);
 
 		}
 
+	}
+
+	private Image getImage(String file) {
+		// TODO Auto-generated method stub
+		Bundle bundle = FrameworkUtil.getBundle(Todo.class);
+		URL url = FileLocator.find(bundle, new Path("icons/" + file), null);
+		ImageDescriptor image = ImageDescriptor.createFromURL(url);
+		return image.createImage();
 	}
 
 	private void createDragSourse(Label lblComponent) {
