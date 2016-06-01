@@ -142,7 +142,7 @@ public class EditorPart {
 						label[i]= new Label();
 						if (d.equals("Router")) {
 							
-							label[i].setIcon(getImage("router.gif"));
+							label[i].setIcon(getImage("router.png"));
 						} else if (d.equals("TV")) {
 							label[i].setIcon(getImage("tv.gif"));
 						} else if (d.equals("Switch")) {

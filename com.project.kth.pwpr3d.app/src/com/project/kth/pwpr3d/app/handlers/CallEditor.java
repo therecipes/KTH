@@ -34,7 +34,7 @@ IWorkbenchWindow window = HandlerUtil.getActiveWorkbenchWindow(event);
 IWorkbenchPage page = window.getActivePage();
 MainView view = (MainView ) page.findView(MainView.ID);
 // Get the selection in the view
-ISelection selection = view .getSite().getSelectionProvider()
+ISelection selection = view.part.getSite().getSelectionProvider()
 .getSelection();
 if (selection != null && selection instanceof IStructuredSelection) {
 Object obj = ((IStructuredSelection) selection).getFirstElement();

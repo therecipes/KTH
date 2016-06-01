@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <application:Application xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:advanced="http://www.eclipse.org/ui/2010/UIModel/application/ui/advanced" xmlns:application="http://www.eclipse.org/ui/2010/UIModel/application" xmlns:basic="http://www.eclipse.org/ui/2010/UIModel/application/ui/basic" xmlns:menu="http://www.eclipse.org/ui/2010/UIModel/application/ui/menu" xmi:id="_6wlLcMgZEeSyMNYR5xypkQ" elementId="com.project.kth.pwpr3d.app.application" bindingContexts="_6wlLecgZEeSyMNYR5xypkQ">
-  <children xsi:type="basic:TrimmedWindow" xmi:id="_6wlLccgZEeSyMNYR5xypkQ" elementId="com.project.kth.pwpr3d.app.window.main" label="PWGPD3 Analysis" iconURI="platform:/plugin/com.project.kth.pwpr3d.app/icons/KTH.png" width="1300" height="750">
+  <children xsi:type="basic:TrimmedWindow" xmi:id="_6wlLccgZEeSyMNYR5xypkQ" elementId="com.project.kth.pwpr3d.app.window.main" label="PWGPD3 ANALYSIS" iconURI="platform:/plugin/com.project.kth.pwpr3d.app/icons/KTH.png" width="1300" height="750">
     <tags>TrimWindow</tags>
     <children xsi:type="advanced:PerspectiveStack" xmi:id="_6wlLkMgZEeSyMNYR5xypkQ" elementId="org.eclipse.ui.ide.perspectivestack">
       <tags>perspectiveColor</tags>

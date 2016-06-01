@@ -22,9 +22,10 @@ public class DummyDataProvider {
 		// Nodes
 		List<mainCategory> myCatList = new ArrayList<mainCategory>();
 		mainCategory firstCat = new mainCategory();
-		File dir = new File("H:/");
+		File dir = new File("E:/");
 		File[] allFiles = dir.listFiles();
-		firstCat.setName("F:");
+		firstCat.setName("Add File");
+		firstCat.setName("Electronics");
 		myCatList.add(firstCat);
 		// Loading a Directory into a tree
 		for (File anItem : allFiles) {
