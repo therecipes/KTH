@@ -10,22 +10,32 @@ public class DummyDataProvider {
 	private static DummyDataProvider dd = null;
 	private static List<MyFiles> fil = new ArrayList<MyFiles>();
 	// Parent Node for storing new ly opened f iles to its children
-	public static mainCategory addedFiles = new mainCategory();
+	public  mainCategory addedFiles = new mainCategory();
+	public  mainCategory  GridConnection= new mainCategory();
+	public  mainCategory  Networking= new mainCategory();
+	List<mainCategory> myCatList = new ArrayList<mainCategory>();
+	String DummyProjectNames[]={"Grid Connection","Networking"};
 
 	public DummyDataProvider() {
-		addedFiles.setName("New Added File");
+		
+	
+		
+		GridConnection.setName("Grid Connection");
+		Networking.setName("Networking");
+		addedFiles.setName("add New Files");
+		
 	}
 
 	public List<mainCategory> getCategories() {
 		// Function for creating and retrieving parent Nodes of the Tree
 		// Child Nodes are also being created here and are added to the parent
 		// Nodes
+		
 		List<mainCategory> myCatList = new ArrayList<mainCategory>();
 		mainCategory firstCat = new mainCategory();
 		File dir = new File("E:/");
 		File[] allFiles = dir.listFiles();
-		firstCat.setName("Add File");
-		firstCat.setName("Electronics");
+		firstCat.setName("F:");
 		myCatList.add(firstCat);
 		// Loading a Directory into a tree
 		for (File anItem : allFiles) {
@@ -34,6 +44,10 @@ public class DummyDataProvider {
 			fil.add(myfile);
 		}
 		// List of f all parent Nodes returned
+		
+	
+		myCatList.add(GridConnection);
+		myCatList.add(Networking);	
 		myCatList.add(addedFiles);
 		return myCatList;
 	}
