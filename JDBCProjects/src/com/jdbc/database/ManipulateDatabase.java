@@ -118,11 +118,10 @@ public class ManipulateDatabase {
 	private void DeleteDatabase() {
 		// TODO Auto-generated method stub
 		try {
-			
+
 			System.out.println("Existing Databases...");
 			DisplayDatabases();
-			
-			
+
 			// STEP 2: Register JDBC driver
 			Class.forName(myJdbcDriver);
 
@@ -503,8 +502,16 @@ public class ManipulateDatabase {
 	public void CreateTables() {
 		// TODO Auto-generated method stub
 		try {
+			System.out.println("Existing Databases...");
+			DisplayDatabases();
+
 			// STEP 2: Register JDBC driver
 			Class.forName(myJdbcDriver);
+
+			// Enter database name
+			System.out.print("Enter Database Name: ");
+			databaseName = inputDatabase.next();
+			myDbUrl = myDbUrl + databaseName;
 
 			// STEP 3: Open a connection
 			System.out.println("Connecting to a selected database...");
@@ -609,8 +616,7 @@ public class ManipulateDatabase {
 		try {
 			System.out.println("Existing Databases...");
 			DisplayDatabases();
-			
-			
+
 			// STEP 2: Register JDBC driver
 			Class.forName(myJdbcDriver);
 
@@ -687,8 +693,7 @@ public class ManipulateDatabase {
 		try {
 			System.out.println("Existing Databases...");
 			DisplayDatabases();
-			
-			
+
 			// STEP 2: Register JDBC driver
 			Class.forName(myJdbcDriver);
 
@@ -764,8 +769,7 @@ public class ManipulateDatabase {
 		try {
 			System.out.println("Existing Databases...");
 			DisplayDatabases();
-			
-			
+
 			// STEP 2: Register JDBC driver
 			Class.forName(myJdbcDriver);
 
