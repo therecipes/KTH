@@ -22,7 +22,7 @@ public class JavaJDBCDatabase {
 
 		Connection conn = null;
 		Statement stmt = null;
-
+		ManipulateDatabase manipulateDatabase = new ManipulateDatabase(JDBC_DRIVER, DB_URL, USER, PASS);
 		System.out.println("1. Add Database. ");
 		System.out.println("2. Change Database. ");
 		System.out.println("3. Remove Database. ");
@@ -34,16 +34,16 @@ public class JavaJDBCDatabase {
 
 		switch (reply) {
 		case 1:
-			AddDatabase addDatabase = new AddDatabase(JDBC_DRIVER, DB_URL, USER, PASS);
+			manipulateDatabase.AddDatabase();
 			break;
 		case 2:
-			ChangeDatabase chnageDatabase = new ChangeDatabase(JDBC_DRIVER, DB_URL, USER, PASS);
+			manipulateDatabase.ChangeDatabase();
 			break;
 		case 3:
-			System.out.println("Well done");
+			manipulateDatabase.DropDatabase();
 			break;
 		case 4:
-			System.out.println("You passed");
+			manipulateDatabase.ShowDatabase();
 		default:
 			System.exit(0);
 		}
