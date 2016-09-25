@@ -22,21 +22,31 @@ public class JavaJDBCDatabase {
 
 		Connection conn = null;
 		Statement stmt = null;
-		/*
-		 * System.out.println("1. Add Database. "); System.out.println(
-		 * "2. Change Database. "); System.out.println("3. Remove Database. ");
-		 * System.out.println("4. Show Database. "); System.out.println(
-		 * "5. Exit. ");
-		 * 
-		 * Scanner input = new Scanner(System.in); int reply = input.nextInt();
-		 * 
-		 * switch(reply) { case 1: AddDatabase addDatabase = new
-		 * AddDatabase(JDBC_DRIVER, DB_URL,USER,PASS); break; case 2 :
-		 * ChangeDatabase chnageDatabase = new ChangeDatabase(JDBC_DRIVER,
-		 * DB_URL,USER,PASS); break; case 3 : System.out.println("Well done");
-		 * break; case 4 : System.out.println("You passed"); default :
-		 * System.exit(0); }
-		 */
+
+		System.out.println("1. Add Database. ");
+		System.out.println("2. Change Database. ");
+		System.out.println("3. Remove Database. ");
+		System.out.println("4. Show Database. ");
+		System.out.println("5. Exit. ");
+
+		Scanner input = new Scanner(System.in);
+		int reply = input.nextInt();
+
+		switch (reply) {
+		case 1:
+			AddDatabase addDatabase = new AddDatabase(JDBC_DRIVER, DB_URL, USER, PASS);
+			break;
+		case 2:
+			ChangeDatabase chnageDatabase = new ChangeDatabase(JDBC_DRIVER, DB_URL, USER, PASS);
+			break;
+		case 3:
+			System.out.println("Well done");
+			break;
+		case 4:
+			System.out.println("You passed");
+		default:
+			System.exit(0);
+		}
 
 		try {
 			// STEP 2: Register JDBC driver
