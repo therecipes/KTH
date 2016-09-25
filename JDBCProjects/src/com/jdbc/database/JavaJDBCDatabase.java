@@ -28,7 +28,8 @@ public class JavaJDBCDatabase {
 		System.out.println("3. Remove Database. ");
 		System.out.println("4. Show Database. ");
 		System.out.println("5. Add Tables. ");
-		System.out.println("6. Exit. ");
+		System.out.println("6. Add records to database. ");
+		System.out.println("7. Exit. ");
 
 		Scanner input = new Scanner(System.in);
 		int reply = input.nextInt();
@@ -48,6 +49,10 @@ public class JavaJDBCDatabase {
 			break;
 		case 5:
 			manipulateDatabase.CreateTables();
+			break;
+		case 6:
+			manipulateDatabase.AddRecords();
+			break;
 		default:
 			System.exit(0);
 		}

@@ -539,6 +539,7 @@ public class ManipulateDatabase {
 				sql = "CREATE TABLE REGISTRATION " + "(id INTEGER not NULL, " + " first VARCHAR(255), "
 						+ " last VARCHAR(255), " + " age INTEGER, " + " PRIMARY KEY ( id ))";
 				stmt.executeUpdate(sql);
+				System.out.println("Table created successfully! ");
 
 				System.out.println("Do you want to insert data into table? ");
 				answer = input.next();
@@ -548,8 +549,9 @@ public class ManipulateDatabase {
 				break;
 			case 2:
 				sql = "CREATE TABLE COURSES " + "(courseid1 VARCHAR(8), " + " courseid2 VARCHAR(8), "
-						+ " courseid3 VARCHAR(8), " + " courseid4 VARCHAR(8) " + " department VARCHAR(35))";
+						+ " courseid3 VARCHAR(8), " + " courseid4 VARCHAR(8), " + " department VARCHAR(35))";
 				stmt.executeUpdate(sql);
+				System.out.println("Table created successfully! ");
 
 				System.out.println("Do you want to insert data into table? ");
 				answer = input.next();
@@ -559,9 +561,10 @@ public class ManipulateDatabase {
 				break;
 			case 3:
 				sql = "CREATE TABLE TAKES " + "(id INTEGER not NULL, " + "courseid1 VARCHAR(8), "
-						+ " courseid2 VARCHAR(8), " + " courseid3 VARCHAR(8), " + " courseid4 VARCHAR(8) "
+						+ " courseid2 VARCHAR(8), " + " courseid3 VARCHAR(8), " + " courseid4 VARCHAR(8), "
 						+ " PRIMARY KEY ( id ))";
 				stmt.executeUpdate(sql);
+				System.out.println("Table created successfully! ");
 
 				System.out.println("Do you want to insert data into table? ");
 				answer = input.next();
@@ -572,11 +575,11 @@ public class ManipulateDatabase {
 			case 4:
 				sql = "ALTER TABLE TAKES ADD FOREIGN KEY (ID) REFERENCES REGISTRATION (ID);";
 				stmt.executeUpdate(sql);
+				System.out.println("FOREIGN KEY created successfully! ");
 				break;
 			default:
 				System.exit(0);
 			}
-			stmt.executeUpdate(sql);
 
 			System.out.println("Created table in given database...");
 		} catch (SQLException se) {
@@ -801,7 +804,7 @@ public class ManipulateDatabase {
 				stmt.executeUpdate(sql);
 
 				System.out.print(" Enter more data (Y/N)? ");
-				answer = Character.toUpperCase((char) input.nextByte());
+				answer = Character.toUpperCase(input.next().charAt(0));
 			} while (answer == 'Y');
 
 			System.out.println("Inserted records into the table...");
@@ -828,6 +831,31 @@ public class ManipulateDatabase {
 			} // end finally try
 		} // end try
 		System.out.println("Goodbye!");
+	}
+
+	public void AddRecords() {
+		// TODO Auto-generated method stub
+		System.out.println("1. Add records to Registration. ");
+		System.out.println("2. Add records to Courses. ");
+		System.out.println("3. Add records to Takes. ");
+		System.out.println("4. Exit. ");
+
+		Scanner input = new Scanner(System.in);
+		int reply = input.nextInt();
+
+		switch (reply) {
+		case 1:
+			insertDataRegistration();
+			break;
+		case 2:
+			insertDataCourses();
+			break;
+		case 3:
+			insertDataTakes();
+			break;
+		default:
+			System.exit(0);
+		}
 	}
 
 }
