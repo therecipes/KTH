@@ -29,6 +29,9 @@ public class ManipulateDatabase {
 	public void AddDatabase() {
 		// TODO Auto-generated method stub
 		try {
+			System.out.println("Existing Databases...");
+			DisplayDatabases();
+
 			// STEP 2: Register JDBC driver
 			Class.forName(myJdbcDriver);
 
@@ -41,9 +44,6 @@ public class ManipulateDatabase {
 			stmt = conn.createStatement();
 
 			// Enter database name
-			System.out.println("Existing Databases...");
-			DisplayDatabases();
-
 			System.out.print("Enter New Database Name: ");
 			databaseName = inputDatabase.next();
 
@@ -51,6 +51,20 @@ public class ManipulateDatabase {
 			stmt.executeUpdate(sql);
 			System.out.println("Database created successfully...");
 
+			// Create Table(s)
+			System.out.println("1. Create Table. ");
+			System.out.println("2. Exit. ");
+
+			Scanner input = new Scanner(System.in);
+			int reply = input.nextInt();
+
+			switch (reply) {
+			case 1:
+				CreateTables();
+				break;
+			default:
+				System.exit(0);
+			}
 		} catch (SQLException se) {
 			// Handle errors for JDBC
 			se.printStackTrace();
@@ -110,7 +124,7 @@ public class ManipulateDatabase {
 			// Enter database name
 			System.out.println("Existing Databases...");
 			DisplayDatabases();
-			
+
 			System.out.print("Enter Database Name: ");
 			databaseName = inputDatabase.next();
 			myDbUrl = myDbUrl + databaseName;
@@ -159,7 +173,7 @@ public class ManipulateDatabase {
 			// Enter database name
 			System.out.println("Existing Databases...");
 			DisplayDatabases();
-			
+
 			System.out.print("Enter Database Name: ");
 			databaseName = inputDatabase.next();
 			myDbUrl = myDbUrl + databaseName;
@@ -284,13 +298,14 @@ public class ManipulateDatabase {
 	private void TableTakes() {
 		// TODO Auto-generated method stub
 		try {
+
+			System.out.println("Existing Databases...");
+			DisplayDatabases();
+
 			// STEP 2: Register JDBC driver
 			Class.forName(myJdbcDriver);
 
 			// Enter database name
-			System.out.println("Existing Databases...");
-			DisplayDatabases();
-			
 			System.out.print("Enter Database Name: ");
 			databaseName = inputDatabase.next();
 			myDbUrl = myDbUrl + databaseName;
@@ -352,12 +367,13 @@ public class ManipulateDatabase {
 	private void TableCourses() {
 		// TODO Auto-generated method stub
 		try {
-			// STEP 2: Register JDBC driver
-			Class.forName(myJdbcDriver);
-			// Enter database name
 			System.out.println("Existing Databases...");
 			DisplayDatabases();
-			
+
+			// STEP 2: Register JDBC driver
+			Class.forName(myJdbcDriver);
+
+			// Enter database name
 			System.out.print("Enter Database Name: ");
 			databaseName = inputDatabase.next();
 			myDbUrl = myDbUrl + databaseName;
@@ -419,13 +435,13 @@ public class ManipulateDatabase {
 	private void TableRegsitration() {
 		// TODO Auto-generated method stub
 		try {
+			System.out.println("Existing Databases...");
+			DisplayDatabases();
+
 			// STEP 2: Register JDBC driver
 			Class.forName(myJdbcDriver);
 
 			// Enter database name
-			System.out.println("Existing Databases...");
-			DisplayDatabases();
-			
 			System.out.print("Enter Database Name: ");
 			databaseName = inputDatabase.next();
 			myDbUrl = myDbUrl + databaseName;
@@ -472,6 +488,305 @@ public class ManipulateDatabase {
 					stmt.close();
 			} catch (SQLException se2) {
 			} // nothing we can do
+			try {
+				if (conn != null)
+					conn.close();
+			} catch (SQLException se) {
+				se.printStackTrace();
+			} // end finally try
+		} // end try
+		System.out.println("Goodbye!");
+	}
+
+	public void CreateTables() {
+		// TODO Auto-generated method stub
+		try {
+			// STEP 2: Register JDBC driver
+			Class.forName(myJdbcDriver);
+
+			// STEP 3: Open a connection
+			System.out.println("Connecting to a selected database...");
+			conn = DriverManager.getConnection(myDbUrl, myUser, myPass);
+			System.out.println("Connected database successfully...");
+
+			// STEP 4: Execute a query
+			System.out.println("Creating table in given database...");
+			stmt = conn.createStatement();
+
+			// Select table
+			System.out.println("1. Table Registration. ");
+			System.out.println("2. Table Courses. ");
+			System.out.println("3. Table Takes. ");
+			System.out.println("4. Create Foreign Key. ");
+			System.out.println("5. Exit. ");
+
+			Scanner input = new Scanner(System.in);
+			int reply = input.nextInt();
+
+			String sql = null, answer = null;
+
+			switch (reply) {
+			case 1:
+				sql = "CREATE TABLE REGISTRATION " + "(id INTEGER not NULL, " + " first VARCHAR(255), "
+						+ " last VARCHAR(255), " + " age INTEGER, " + " PRIMARY KEY ( id ))";
+				stmt.executeUpdate(sql);
+
+				System.out.println("Do you want to insert data into table? ");
+				answer = input.next();
+				if (answer == "Y") {
+					insertDataRegistration();
+				}
+				break;
+			case 2:
+				sql = "CREATE TABLE COURSES " + "(courseid1 VARCHAR(8), " + " courseid2 VARCHAR(8), "
+						+ " courseid3 VARCHAR(8), " + " courseid4 VARCHAR(8) " + " department VARCHAR(35))";
+				stmt.executeUpdate(sql);
+
+				System.out.println("Do you want to insert data into table? ");
+				answer = input.next();
+				if (answer == "Y") {
+					insertDataCourses();
+				}
+				break;
+			case 3:
+				sql = "CREATE TABLE TAKES " + "(id INTEGER not NULL, " + "courseid1 VARCHAR(8), "
+						+ " courseid2 VARCHAR(8), " + " courseid3 VARCHAR(8), " + " courseid4 VARCHAR(8) "
+						+ " PRIMARY KEY ( id ))";
+				stmt.executeUpdate(sql);
+
+				System.out.println("Do you want to insert data into table? ");
+				answer = input.next();
+				if (answer == "Y") {
+					insertDataTakes();
+				}
+				break;
+			case 4:
+				sql = "ALTER TABLE TAKES ADD FOREIGN KEY (ID) REFERENCES REGISTRATION (ID);";
+				stmt.executeUpdate(sql);
+				break;
+			default:
+				System.exit(0);
+			}
+			stmt.executeUpdate(sql);
+
+			System.out.println("Created table in given database...");
+		} catch (SQLException se) {
+			// Handle errors for JDBC
+			se.printStackTrace();
+		} catch (Exception e) {
+			// Handle errors for Class.forName
+			e.printStackTrace();
+		} finally {
+			// finally block used to close resources
+			try {
+				if (stmt != null)
+					conn.close();
+			} catch (SQLException se) {
+			} // do nothing
+			try {
+				if (conn != null)
+					conn.close();
+			} catch (SQLException se) {
+				se.printStackTrace();
+			} // end finally try
+		} // end try
+		System.out.println("Goodbye!");
+	}
+
+	private void insertDataTakes() {
+		// TODO Auto-generated method stub
+
+		Scanner input = new Scanner(System.in);
+		int idNumber = 0;
+		String courseid1 = null;
+		String courseid2 = null;
+		String courseid3 = null;
+		String courseid4 = null;
+		char answer = '\0';
+
+		try {
+			// STEP 2: Register JDBC driver
+			Class.forName(myJdbcDriver);
+
+			// STEP 3: Open a connection
+			System.out.println("Connecting to a selected database...");
+			conn = DriverManager.getConnection(myDbUrl, myUser, myPass);
+			System.out.println("Connected database successfully...");
+
+			// STEP 4: Execute a query
+			System.out.println("Inserting records into the table...");
+			stmt = conn.createStatement();
+			do {
+				System.out.print("Enter ID number (001 - 999): ");
+				idNumber = input.nextInt();
+				System.out.print("Enter Student First Course code: ");
+				courseid1 = input.next();
+				System.out.print("Enter Student 2nd Course code: ");
+				courseid2 = input.next();
+				System.out.print("Enter Student 3rd Course code: ");
+				courseid3 = input.next();
+				System.out.print("Enter Student 4th Course code: ");
+				courseid4 = input.next();
+
+				String sql = "INSERT INTO Takes " + "VALUES (" + idNumber + ", '" + courseid1 + "', '" + courseid2
+						+ "', '" + courseid3 + "', '" + courseid4 + "')";
+				stmt.executeUpdate(sql);
+
+				System.out.print(" Enter more data (Y/N)? ");
+				answer = Character.toUpperCase((char) input.nextByte());
+			} while (answer == 'Y');
+
+			System.out.println("Inserted records into the table...");
+
+		} catch (SQLException se) {
+			// Handle errors for JDBC
+			se.printStackTrace();
+		} catch (Exception e) {
+			// Handle errors for Class.forName
+			e.printStackTrace();
+		} finally {
+			// finally block used to close resources
+			input.close();
+			try {
+				if (stmt != null)
+					conn.close();
+			} catch (SQLException se) {
+			} // do nothing
+			try {
+				if (conn != null)
+					conn.close();
+			} catch (SQLException se) {
+				se.printStackTrace();
+			} // end finally try
+		} // end try
+		System.out.println("Goodbye!");
+	}
+
+	private void insertDataCourses() {
+		// TODO Auto-generated method stub
+
+		Scanner input = new Scanner(System.in);
+		String courseid1 = null;
+		String courseid2 = null;
+		String courseid3 = null;
+		String courseid4 = null;
+		String dept = null;
+		char answer = '\0';
+
+		try {
+			// STEP 2: Register JDBC driver
+			Class.forName(myJdbcDriver);
+
+			// STEP 3: Open a connection
+			System.out.println("Connecting to a selected database...");
+			conn = DriverManager.getConnection(myDbUrl, myUser, myPass);
+			System.out.println("Connected database successfully...");
+
+			// STEP 4: Execute a query
+			System.out.println("Inserting records into the table...");
+			stmt = conn.createStatement();
+			do {
+				System.out.print("Enter Student First Course code: ");
+				courseid1 = input.next();
+				System.out.print("Enter Student 2nd Course code: ");
+				courseid2 = input.next();
+				System.out.print("Enter Student 3rd Course code: ");
+				courseid3 = input.next();
+				System.out.print("Enter Student 4th Course code: ");
+				courseid4 = input.next();
+				System.out.print("Enter the Department: ");
+				dept = input.next();
+
+				String sql = "INSERT INTO Takes " + "VALUES ('" + courseid1 + "', '" + courseid2 + "', '" + courseid3
+						+ "', '" + courseid4 + "', '" + dept + "')";
+				stmt.executeUpdate(sql);
+
+				System.out.print(" Enter more data (Y/N)? ");
+				answer = Character.toUpperCase((char) input.nextByte());
+			} while (answer == 'Y');
+
+			System.out.println("Inserted records into the table...");
+
+		} catch (SQLException se) {
+			// Handle errors for JDBC
+			se.printStackTrace();
+		} catch (Exception e) {
+			// Handle errors for Class.forName
+			e.printStackTrace();
+		} finally {
+			// finally block used to close resources
+			input.close();
+			try {
+				if (stmt != null)
+					conn.close();
+			} catch (SQLException se) {
+			} // do nothing
+			try {
+				if (conn != null)
+					conn.close();
+			} catch (SQLException se) {
+				se.printStackTrace();
+			} // end finally try
+		} // end try
+		System.out.println("Goodbye!");
+	}
+
+	private void insertDataRegistration() {
+		// TODO Auto-generated method stub
+
+		Scanner input = new Scanner(System.in);
+		int idNumber = 0;
+		String firstName = null;
+		String lastName = null;
+		int age = 0;
+		char answer = '\0';
+
+		try {
+			// STEP 2: Register JDBC driver
+			Class.forName(myJdbcDriver);
+
+			// STEP 3: Open a connection
+			System.out.println("Connecting to a selected database...");
+			conn = DriverManager.getConnection(myDbUrl, myUser, myPass);
+			System.out.println("Connected database successfully...");
+
+			// STEP 4: Execute a query
+			System.out.println("Inserting records into the table...");
+			stmt = conn.createStatement();
+			do {
+				System.out.print("Enter ID number (001 - 999): ");
+				idNumber = input.nextInt();
+				System.out.print("Enter Student FirstName: ");
+				firstName = input.next();
+				System.out.print("Enter Student LastName: ");
+				lastName = input.next();
+				System.out.print("Enter Student Age: ");
+				age = input.nextInt();
+
+				String sql = "INSERT INTO Registration " + "VALUES (" + idNumber + ", '" + firstName + "', '" + lastName
+						+ "', " + age + ")";
+				stmt.executeUpdate(sql);
+
+				System.out.print(" Enter more data (Y/N)? ");
+				answer = Character.toUpperCase((char) input.nextByte());
+			} while (answer == 'Y');
+
+			System.out.println("Inserted records into the table...");
+
+		} catch (SQLException se) {
+			// Handle errors for JDBC
+			se.printStackTrace();
+		} catch (Exception e) {
+			// Handle errors for Class.forName
+			e.printStackTrace();
+		} finally {
+			// finally block used to close resources
+			input.close();
+			try {
+				if (stmt != null)
+					conn.close();
+			} catch (SQLException se) {
+			} // do nothing
 			try {
 				if (conn != null)
 					conn.close();
