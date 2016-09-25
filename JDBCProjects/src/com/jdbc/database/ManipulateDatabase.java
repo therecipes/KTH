@@ -648,7 +648,7 @@ public class ManipulateDatabase {
 				System.out.print("Enter Student 4th Course code: ");
 				courseid4 = input.next();
 
-				String sql = "INSERT INTO Takes " + "VALUES (" + idNumber + ", '" + courseid1 + "', '" + courseid2
+				String sql = "INSERT INTO Takes VALUES (" + idNumber + ", '" + courseid1 + "', '" + courseid2
 						+ "', '" + courseid3 + "', '" + courseid4 + "')";
 				stmt.executeUpdate(sql);
 
@@ -725,7 +725,7 @@ public class ManipulateDatabase {
 				System.out.print("Enter the Department: ");
 				dept = input.next();
 
-				String sql = "INSERT INTO Takes " + "VALUES ('" + courseid1 + "', '" + courseid2 + "', '" + courseid3
+				String sql = "INSERT INTO Coureses VALUES ('" + courseid1 + "', '" + courseid2 + "', '" + courseid3
 						+ "', '" + courseid4 + "', '" + dept + "')";
 				stmt.executeUpdate(sql);
 
