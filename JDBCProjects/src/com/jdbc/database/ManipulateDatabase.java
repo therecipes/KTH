@@ -16,6 +16,8 @@ public class ManipulateDatabase {
 	private String myDbUrl;
 	private String myUser;
 	private String myPass;
+	Scanner inputDatabase = new Scanner(System.in);
+	String databaseName = null;
 
 	public ManipulateDatabase(String jdbcDriver, String dbUrl, String user, String pass) {
 		myJdbcDriver = jdbcDriver;
@@ -35,12 +37,20 @@ public class ManipulateDatabase {
 			conn = DriverManager.getConnection(myDbUrl, myUser, myPass);
 
 			// STEP 4: Execute a query
-			System.out.println("Creating database...");
+			System.out.println("Creating New database...");
 			stmt = conn.createStatement();
 
-			String sql = "CREATE DATABASE STUDENTS";
+			// Enter database name
+			System.out.println("Existing Databases...");
+			DisplayDatabases();
+
+			System.out.print("Enter New Database Name: ");
+			databaseName = inputDatabase.next();
+
+			String sql = "CREATE DATABASE " + databaseName;
 			stmt.executeUpdate(sql);
 			System.out.println("Database created successfully...");
+
 		} catch (SQLException se) {
 			// Handle errors for JDBC
 			se.printStackTrace();
@@ -88,7 +98,7 @@ public class ManipulateDatabase {
 		default:
 			System.exit(0);
 		}
-
+		input.close();
 	}
 
 	private void DeleteDatabase() {
@@ -96,7 +106,15 @@ public class ManipulateDatabase {
 		try {
 			// STEP 2: Register JDBC driver
 			Class.forName(myJdbcDriver);
-			myDbUrl = myDbUrl + "STUDENTS";
+
+			// Enter database name
+			System.out.println("Existing Databases...");
+			DisplayDatabases();
+			
+			System.out.print("Enter Database Name: ");
+			databaseName = inputDatabase.next();
+			myDbUrl = myDbUrl + databaseName;
+
 			// STEP 3: Open a connection
 			System.out.println("Connecting to a selected database...");
 			conn = DriverManager.getConnection(myDbUrl, myUser, myPass);
@@ -137,7 +155,14 @@ public class ManipulateDatabase {
 		try {
 			// STEP 2: Register JDBC driver
 			Class.forName(myJdbcDriver);
-			myDbUrl = myDbUrl + "STUDENTS";
+
+			// Enter database name
+			System.out.println("Existing Databases...");
+			DisplayDatabases();
+			
+			System.out.print("Enter Database Name: ");
+			databaseName = inputDatabase.next();
+			myDbUrl = myDbUrl + databaseName;
 
 			// STEP 3: Open a connection
 			System.out.println("Connecting to a selected database...");
@@ -200,7 +225,7 @@ public class ManipulateDatabase {
 		default:
 			System.exit(0);
 		}
-
+		input.close();
 	}
 
 	private void DisplayDatabases() {
@@ -208,7 +233,11 @@ public class ManipulateDatabase {
 		try {
 			// STEP 2: Register JDBC driver
 			Class.forName(myJdbcDriver);
-			myDbUrl = myDbUrl + "STUDENTS";
+
+			// Enter database name
+			// System.out.print("Enter Database Name: ");
+			// databaseName = inputDatabase.next();
+			// myDbUrl = myDbUrl + databaseName;
 
 			// STEP 3: Open a connection
 			System.out.println("Connecting to a selected database...");
@@ -257,7 +286,15 @@ public class ManipulateDatabase {
 		try {
 			// STEP 2: Register JDBC driver
 			Class.forName(myJdbcDriver);
-			myDbUrl = myDbUrl + "STUDENTS";
+
+			// Enter database name
+			System.out.println("Existing Databases...");
+			DisplayDatabases();
+			
+			System.out.print("Enter Database Name: ");
+			databaseName = inputDatabase.next();
+			myDbUrl = myDbUrl + databaseName;
+
 			// STEP 3: Open a connection
 			System.out.println("Connecting to database...");
 			conn = DriverManager.getConnection(myDbUrl, myUser, myPass);
@@ -317,7 +354,14 @@ public class ManipulateDatabase {
 		try {
 			// STEP 2: Register JDBC driver
 			Class.forName(myJdbcDriver);
-			myDbUrl = myDbUrl + "STUDENTS";
+			// Enter database name
+			System.out.println("Existing Databases...");
+			DisplayDatabases();
+			
+			System.out.print("Enter Database Name: ");
+			databaseName = inputDatabase.next();
+			myDbUrl = myDbUrl + databaseName;
+
 			// STEP 3: Open a connection
 			System.out.println("Connecting to database...");
 			conn = DriverManager.getConnection(myDbUrl, myUser, myPass);
@@ -377,7 +421,14 @@ public class ManipulateDatabase {
 		try {
 			// STEP 2: Register JDBC driver
 			Class.forName(myJdbcDriver);
-			myDbUrl = myDbUrl + "STUDENTS";
+
+			// Enter database name
+			System.out.println("Existing Databases...");
+			DisplayDatabases();
+			
+			System.out.print("Enter Database Name: ");
+			databaseName = inputDatabase.next();
+			myDbUrl = myDbUrl + databaseName;
 
 			// STEP 3: Open a connection
 			System.out.println("Connecting to database...");
