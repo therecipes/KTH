@@ -11,7 +11,7 @@ public class JavaJDBCDatabase {
 
 	// JDBC driver name and database URL
 	static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
-	static final String DB_URL = "jdbc:mysql://localhost/STUDENTS";
+	static final String DB_URL = "jdbc:mysql://localhost/";
 
 	// Database credentials
 	static final String USER = "root";
@@ -48,7 +48,7 @@ public class JavaJDBCDatabase {
 			System.exit(0);
 		}
 
-		try {
+		/*try {
 			// STEP 2: Register JDBC driver
 			Class.forName("com.mysql.jdbc.Driver");
 
@@ -95,7 +95,7 @@ public class JavaJDBCDatabase {
 				se.printStackTrace();
 			} // end finally try
 		} // end try
-		System.out.println("Goodbye!");
+		System.out.println("Goodbye!");*/
 	}
 
 }
