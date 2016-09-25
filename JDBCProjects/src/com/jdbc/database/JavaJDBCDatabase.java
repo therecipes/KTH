@@ -62,42 +62,35 @@ public class JavaJDBCDatabase {
 			stmt.executeUpdate("ALTER TABLE takes DROP department");
 			System.out.println("Column is deleted successfully!");
 
-			  String sql = "INSERT INTO Registration " +
-	                   "VALUES (111, 'Lisa', 'Tony', 28)";
-	      stmt.executeUpdate(sql);
-	      
-	      sql = "INSERT INTO Registration " +
-                  "VALUES (112, 'Lisa', 'Tony', 28)";
-     stmt.executeUpdate(sql);
+			String sql = "INSERT INTO Registration " + "VALUES (111, 'Lisa', 'Tony', 28)";
+			stmt.executeUpdate(sql);
+			sql = "UPDATE Registration " + "SET id = 110 WHERE id in (1010)";
+			stmt.executeUpdate(sql);
 
 			System.out.println(" Replace column successful");
 
-			sql = "INSERT INTO Takes "
-					+ "VALUES (100, 'ACCT201', 'COMP101', 'SWE011', 'CHEM145')";
+			sql = "INSERT INTO Takes " + "VALUES (100, 'ACCT201', 'COMP101', 'SWE011', 'CHEM145')";
 			stmt.executeUpdate(sql);
-			sql = "INSERT INTO Takes "
-					+ "VALUES (101, 'COMP111', 'ACCT221', 'SWE011', 'ENGR231')";
+			sql = "INSERT INTO Takes " + "VALUES (101, 'COMP111', 'ACCT221', 'SWE011', 'ENGR231')";
+			stmt.executeUpdate(sql);
 			sql = "INSERT INTO Takes " + "VALUES (109, 'COMP100', 'SWE311', 'ENGR331', 'ACCT121')";
 			stmt.executeUpdate(sql);
-			sql = "INSERT INTO Takes "
-					+ "VALUES (108, 'CHEM123', 'ENGR131', 'COMP211', 'ITA210')";
-
-			sql = "INSERT INTO Takes "
-					+ "VALUES (104, 'ENGR113', 'CHEM134', 'ENG222', 'ACCT112')";
+			sql = "INSERT INTO Takes " + "VALUES (108, 'CHEM123', 'ENGR131', 'COMP211', 'ITA210')";
+			stmt.executeUpdate(sql);
+			sql = "INSERT INTO Takes " + "VALUES (104, 'ENGR113', 'CHEM134', 'ENG222', 'ACCT112')";
 			stmt.executeUpdate(sql);
 			sql = "INSERT INTO Takes " + "VALUES (103, 'PHYS109', 'CHEM201', 'BIO100', 'PHYS219')";
+			stmt.executeUpdate(sql);
 			sql = "INSERT INTO Takes " + "VALUES (107, 'BIO222', 'PHYS198', 'HELT122', 'BIO122')";
 			stmt.executeUpdate(sql);
 			sql = "INSERT INTO Takes " + "VALUES (110, 'BAN112', 'LAW111', 'ECON201', 'LAW112')";
 			stmt.executeUpdate(sql);
 
-			sql = "INSERT INTO Takes "
-					+ "VALUES (106, 'ECON202', 'ECON111', 'LAW222', 'BAN122')";
+			sql = "INSERT INTO Takes " + "VALUES (106, 'ECON202', 'ECON111', 'LAW222', 'BAN122')";
 			stmt.executeUpdate(sql);
-			sql = "INSERT INTO Takes "
-					+ "VALUES (105, 'ARCH109', 'ARCH198', 'ARCH219', 'PHYS219')";
-			sql = "INSERT INTO Takes "
-					+ "VALUES (102, 'HELT222', 'HELT121', 'HELT100', 'BIO121')";
+			sql = "INSERT INTO Takes " + "VALUES (105, 'ARCH109', 'ARCH198', 'ARCH219', 'PHYS219')";
+			stmt.executeUpdate(sql);
+			sql = "INSERT INTO Takes " + "VALUES (102, 'HELT222', 'HELT121', 'HELT100', 'BIO121')";
 			stmt.executeUpdate(sql);
 			sql = "INSERT INTO Takes " + "VALUES (111, 'BAN222', 'BAN111', 'ARCH122', 'LAW122')";
 			stmt.executeUpdate(sql);
