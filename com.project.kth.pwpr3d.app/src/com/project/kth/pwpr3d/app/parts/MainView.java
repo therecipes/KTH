@@ -6,6 +6,7 @@ import javax.inject.Inject;
 import org.eclipse.e4.ui.di.Focus;
 import org.eclipse.e4.ui.di.Persist;
 import org.eclipse.e4.ui.model.application.ui.MDirtyable;
+import org.eclipse.jdt.ui.IPackagesViewPart;
 import org.eclipse.jface.viewers.DoubleClickEvent;
 import org.eclipse.jface.viewers.IDoubleClickListener;
 import org.eclipse.jface.viewers.TableViewer;
@@ -31,7 +32,7 @@ public class MainView {
 	public MainView() {
 	}
 
-	public static final String ID = "com.project.kth.pwpr3d.app.part.ModelView";
+	public static final String ID = "com.project.kth.pwpr3d.app.part.MainView";
 	// Called for creating layout of the View
 
 	private TableViewer tableViewer;
@@ -43,6 +44,7 @@ public class MainView {
 
 	public void createPartControl(Composite parent) {
 		// TODO Auto-generated method stub
+		
 		parent.setLayout(new GridLayout(1, false));
 
 		txtInput = new Text(parent, SWT.BORDER);
@@ -78,7 +80,7 @@ public class MainView {
 					try {
 						// Calling Service Handler
 						// executing Command using the given Command Id
-						handlerService.executeCommand("com.project.kth.pwpr3d.app.part.ModelView", null);
+						handlerService.executeCommand("com.project.kth.pwpr3d.app.part.MainView", null);
 					} catch (Exception ex) {
 						throw new RuntimeException(ex.toString());
 					}

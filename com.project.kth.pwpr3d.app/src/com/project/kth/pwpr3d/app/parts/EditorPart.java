@@ -30,7 +30,6 @@ import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.widgets.Canvas;
 import org.eclipse.swt.widgets.Composite;
-
 import org.osgi.framework.Bundle;
 import org.osgi.framework.FrameworkUtil;
 
@@ -52,7 +51,7 @@ public class EditorPart {
 	@PostConstruct
 	public void createComposite(Composite parent) {
 		setCanvas(createDiagram(parent));
-		getCanvas().setLayoutData(new GridData(GridData.FILL_BOTH));
+		//getCanvas().setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
 
 		/*
 		 * final Group grpCanvas = new Group(EditorPart.getCanvas(), SWT.NONE);

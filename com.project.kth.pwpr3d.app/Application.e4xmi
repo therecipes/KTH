@@ -7,7 +7,7 @@
       <children xsi:type="advanced:Perspective" xmi:id="_6wlLkcgZEeSyMNYR5xypkQ" elementId="com.project.kth.pwpr3d.app.perspective.sample">
         <children xsi:type="basic:PartSashContainer" xmi:id="_6wlLksgZEeSyMNYR5xypkQ" elementId="com.project.kth.pwpr3d.app.partsashcontainer.sample" accessibilityPhrase="Model View" horizontal="true">
           <children xsi:type="basic:PartStack" xmi:id="_6wlLk8gZEeSyMNYR5xypkQ" elementId="com.project.kth.pwpr3d.app.partstack.sample">
-            <children xsi:type="basic:Part" xmi:id="_6wlLlMgZEeSyMNYR5xypkQ" elementId="com.project.kth.pwpr3d.app.part.ModelView" contributionURI="bundleclass://com.project.kth.pwpr3d.app/com.project.kth.pwpr3d.app.parts.MainView" label="Model View" closeable="true">
+            <children xsi:type="basic:Part" xmi:id="_6wlLlMgZEeSyMNYR5xypkQ" elementId="com.project.kth.pwpr3d.app.part.ModelView" contributionURI="bundleclass://com.project.kth.pwpr3d.app/com.project.kth.pwpr3d.app.parts.MainView" label="Model View" iconURI="platform:/plugin/com.project.kth.pwpr3d.app/icons/navigator-16.png" closeable="true">
               <toolbar xmi:id="_UHxCIBrxEea5kf3wxK5uXw" elementId="com.project.kth.pwpr3d.app.toolbar.2">
                 <children xsi:type="menu:HandledToolItem" xmi:id="_vV4jMBtHEea5kf3wxK5uXw" elementId="com.project.kth.pwpr3d.app.handledtoolitem.linkview" label="Link View" iconURI="platform:/plugin/com.project.kth.pwpr3d.app/icons/icons/synced.gif"/>
                 <children xsi:type="menu:HandledToolItem" xmi:id="_Urdr4BzwEeaYxdprB6Ydmg" elementId="com.project.kth.pwpr3d.app.handledtoolitem.collapseall" label="Collapse All" iconURI="platform:/plugin/com.project.kth.pwpr3d.app/icons/icons/collapse_all.gif"/>
@@ -22,7 +22,7 @@
               </children>
             </children>
             <children xsi:type="basic:PartStack" xmi:id="_K-ja4BrxEea5kf3wxK5uXw" elementId="com.project.kth.pwpr3d.app.partstack.2">
-              <children xsi:type="basic:Part" xmi:id="_LMskkBrxEea5kf3wxK5uXw" elementId="com.project.kth.pwpr3d.app.part.properties" contributionURI="bundleclass://com.project.kth.pwpr3d.app/com.project.kth.pwpr3d.app.parts.PalettePart" label="Properties" iconURI="platform:/plugin/com.project.kth.pwpr3d.app/icons/properties.png" closeable="true">
+              <children xsi:type="basic:Part" xmi:id="_LMskkBrxEea5kf3wxK5uXw" elementId="com.project.kth.pwpr3d.app.part.properties" contributionURI="bundleclass://com.project.kth.pwpr3d.app/com.project.kth.pwpr3d.app.parts.MyFiles" label="Properties" iconURI="platform:/plugin/com.project.kth.pwpr3d.app/icons/properties.png" closeable="true">
                 <toolbar xmi:id="_QQhq0BrxEea5kf3wxK5uXw" elementId="com.project.kth.pwpr3d.app.toolbar.0"/>
               </children>
             </children>
@@ -40,16 +40,16 @@
     <mainMenu xmi:id="_6wlLicgZEeSyMNYR5xypkQ" elementId="org.eclipse.ui.main.menu">
       <children xsi:type="menu:Menu" xmi:id="_6wlLisgZEeSyMNYR5xypkQ" elementId="file" label="File">
         <children xsi:type="menu:HandledMenuItem" xmi:id="_6wlLi8gZEeSyMNYR5xypkQ" elementId="com.project.kth.pwpr3d.app.handleditem.file.open" label="New" iconURI="" command="_6wlLgMgZEeSyMNYR5xypkQ"/>
-        <children xsi:type="menu:HandledMenuItem" xmi:id="_6wlLjMgZEeSyMNYR5xypkQ" elementId="com.project.kth.pwpr3d.app.handleditem.save" label="Open File" iconURI="" command="_6wlLg8gZEeSyMNYR5xypkQ"/>
-        <children xsi:type="menu:HandledMenuItem" xmi:id="_6wlLjcgZEeSyMNYR5xypkQ" elementId="com.project.kth.pwpr3d.app.handleditem.quit" label="Open Recent" command="_6wlLfMgZEeSyMNYR5xypkQ"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_6wlLjMgZEeSyMNYR5xypkQ" elementId="com.project.kth.pwpr3d.app.handleditem.save" label="Open File" iconURI="" command="_6wlLgMgZEeSyMNYR5xypkQ"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_6wlLjcgZEeSyMNYR5xypkQ" elementId="com.project.kth.pwpr3d.app.handleditem.quit" label="Open Recent" command="_6wlLgMgZEeSyMNYR5xypkQ"/>
         <children xsi:type="menu:HandledMenuItem" xmi:id="_0c3ScBr3Eea5kf3wxK5uXw" elementId="com.project.kth.pwpr3d.app.handledmenuitem.openview" label="Open View"/>
         <children xsi:type="menu:MenuSeparator" xmi:id="_3gI2MBr3Eea5kf3wxK5uXw" elementId="com.project.kth.pwpr3d.app.menuseparator.0"/>
         <children xsi:type="menu:HandledMenuItem" xmi:id="_85W9oBr3Eea5kf3wxK5uXw" elementId="com.project.kth.pwpr3d.app.handledmenuitem.closemodel" label="Close Model"/>
         <children xsi:type="menu:HandledMenuItem" xmi:id="_9aulUBr3Eea5kf3wxK5uXw" elementId="com.project.kth.pwpr3d.app.handledmenuitem.closeview" label="Close View"/>
         <children xsi:type="menu:HandledMenuItem" xmi:id="_9t_fkBr3Eea5kf3wxK5uXw" elementId="com.project.kth.pwpr3d.app.handledmenuitem.closeallview" label="Close All View"/>
         <children xsi:type="menu:MenuSeparator" xmi:id="_BMwsgBr4Eea5kf3wxK5uXw" elementId="com.project.kth.pwpr3d.app.menuseparator.1"/>
-        <children xsi:type="menu:HandledMenuItem" xmi:id="_CngMMBr4Eea5kf3wxK5uXw" elementId="com.project.kth.pwpr3d.app.handledmenuitem.save" label="Save" iconURI="platform:/plugin/com.project.kth.pwpr3d.app/icons/save_edit.png"/>
-        <children xsi:type="menu:HandledMenuItem" xmi:id="_DE-yYBr4Eea5kf3wxK5uXw" elementId="com.project.kth.pwpr3d.app.handledmenuitem.saveas" label="Save As" iconURI="platform:/plugin/com.project.kth.pwpr3d.app/icons/icons/icons/full/etool16/saveas_edit.png"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_CngMMBr4Eea5kf3wxK5uXw" elementId="com.project.kth.pwpr3d.app.handledmenuitem.save" label="Save" iconURI="platform:/plugin/com.project.kth.pwpr3d.app/icons/save_edit.png" command="_6wlLg8gZEeSyMNYR5xypkQ"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_DE-yYBr4Eea5kf3wxK5uXw" elementId="com.project.kth.pwpr3d.app.handledmenuitem.saveas" label="Save As" iconURI="platform:/plugin/com.project.kth.pwpr3d.app/icons/icons/icons/full/etool16/saveas_edit.png" command="_6wlLg8gZEeSyMNYR5xypkQ"/>
         <children xsi:type="menu:HandledMenuItem" xmi:id="_Dct88Br4Eea5kf3wxK5uXw" elementId="com.project.kth.pwpr3d.app.handledmenuitem.savetemplate" label="Save Template" iconURI="platform:/plugin/com.project.kth.pwpr3d.app/icons/icons/page_save.png"/>
         <children xsi:type="menu:MenuSeparator" xmi:id="_TAraEBr4Eea5kf3wxK5uXw" elementId="com.project.kth.pwpr3d.app.menuseparator.2"/>
         <children xsi:type="menu:HandledMenuItem" xmi:id="_wzosgBr4Eea5kf3wxK5uXw" elementId="com.project.kth.pwpr3d.app.handledmenuitem.print" label="Print" iconURI="platform:/plugin/com.project.kth.pwpr3d.app/icons/icons/icons/etool16/print_topic.gif"/>
@@ -59,7 +59,7 @@
         <children xsi:type="menu:HandledMenuItem" xmi:id="_0j8VYBr4Eea5kf3wxK5uXw" elementId="com.project.kth.pwpr3d.app.handledmenuitem.properties" label="Import" iconURI="platform:/plugin/com.project.kth.pwpr3d.app/icons/icons/icons/full/etool16/import_wiz.png"/>
         <children xsi:type="menu:MenuSeparator" xmi:id="_wRyIkBs4Eea5kf3wxK5uXw" elementId="com.project.kth.pwpr3d.app.menuseparator.3"/>
         <children xsi:type="menu:HandledMenuItem" xmi:id="_x32ugBs4Eea5kf3wxK5uXw" elementId="com.project.kth.pwpr3d.app.handledmenuitem.properties" label="Properties"/>
-        <children xsi:type="menu:HandledMenuItem" xmi:id="_y8sPoBs4Eea5kf3wxK5uXw" elementId="com.project.kth.pwpr3d.app.handledmenuitem.exit" label="Exit"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_y8sPoBs4Eea5kf3wxK5uXw" elementId="com.project.kth.pwpr3d.app.handledmenuitem.exit" label="Exit" command="_6wlLfMgZEeSyMNYR5xypkQ"/>
       </children>
       <children xsi:type="menu:Menu" xmi:id="_KAOisBr3Eea5kf3wxK5uXw" elementId="com.project.kth.pwpr3d.app.menu.edit" label="Edit">
         <children xsi:type="menu:HandledMenuItem" xmi:id="_M-dOwBtBEea5kf3wxK5uXw" elementId="com.project.kth.pwpr3d.app.handledmenuitem.undo" label="Undo" iconURI="platform:/plugin/com.project.kth.pwpr3d.app/icons/icons/icons/full/etool16/undo_edit.png"/>
@@ -117,15 +117,15 @@
     <trimBars xmi:id="_6wlLlcgZEeSyMNYR5xypkQ" elementId="com.project.kth.pwpr3d.app.trimbar.top">
       <children xsi:type="menu:ToolBar" xmi:id="_6wlLlsgZEeSyMNYR5xypkQ" elementId="org.eclipse.ui.main.toolbar">
         <children xsi:type="menu:HandledToolItem" xmi:id="_6wlLl8gZEeSyMNYR5xypkQ" elementId="com.project.kth.pwpr3d.app.handleditem.trimbar.top.open" label="New  Model" iconURI="platform:/plugin/com.project.kth.pwpr3d.app/icons/icons/icons/full/etool16/newfile_wiz.png" command="_gGsZ0CJmEea6hekjBvsywg"/>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_6wlLmMgZEeSyMNYR5xypkQ" elementId="com.project.kth.pwpr3d.app.handleditem.trimbar.top.save" label="Open Model" iconURI="platform:/plugin/com.project.kth.pwpr3d.app/icons/icons/Open 18 n p.png" command="_6wlLg8gZEeSyMNYR5xypkQ"/>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_ZQSagBtGEea5kf3wxK5uXw" elementId="com.project.kth.pwpr3d.app.handledtoolitem.savemodel" label="Save Model" iconURI="platform:/plugin/com.project.kth.pwpr3d.app/icons/icons/icons/full/etool16/save_edit.png"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_6wlLmMgZEeSyMNYR5xypkQ" elementId="com.project.kth.pwpr3d.app.handleditem.trimbar.top.save" label="Open Model" iconURI="platform:/plugin/com.project.kth.pwpr3d.app/icons/icons/Open 18 n p.png" command="_6wlLgMgZEeSyMNYR5xypkQ"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_ZQSagBtGEea5kf3wxK5uXw" elementId="com.project.kth.pwpr3d.app.handledtoolitem.savemodel" label="Save Model" iconURI="platform:/plugin/com.project.kth.pwpr3d.app/icons/icons/icons/full/etool16/save_edit.png" command="_6wlLg8gZEeSyMNYR5xypkQ"/>
         <children xsi:type="menu:HandledToolItem" xmi:id="_tDzoUBtGEea5kf3wxK5uXw" elementId="com.project.kth.pwpr3d.app.handledtoolitem.undo" label="Undo" iconURI="platform:/plugin/com.project.kth.pwpr3d.app/icons/icons/icons/full/etool16/undo_edit.png"/>
         <children xsi:type="menu:HandledToolItem" xmi:id="_Ij9KoBtHEea5kf3wxK5uXw" elementId="com.project.kth.pwpr3d.app.handledtoolitem.redo" label="Redo" iconURI="platform:/plugin/com.project.kth.pwpr3d.app/icons/icons/icons/full/etool16/redo_edit.png"/>
         <children xsi:type="menu:HandledToolItem" xmi:id="_JNRNYBtHEea5kf3wxK5uXw" elementId="com.project.kth.pwpr3d.app.handledtoolitem.cut" label="Cut" iconURI="platform:/plugin/com.project.kth.pwpr3d.app/icons/icons/icons/full/etool16/cut_edit.png"/>
         <children xsi:type="menu:HandledToolItem" xmi:id="_J2V_kBtHEea5kf3wxK5uXw" elementId="com.project.kth.pwpr3d.app.handledtoolitem.copy" label="Copy" iconURI="platform:/plugin/com.project.kth.pwpr3d.app/icons/icons/page_copy.png"/>
         <children xsi:type="menu:HandledToolItem" xmi:id="_KlTXUBtHEea5kf3wxK5uXw" elementId="com.project.kth.pwpr3d.app.handledtoolitem.paste" label="Paste" iconURI="platform:/plugin/com.project.kth.pwpr3d.app/icons/icons/page_paste.png"/>
         <children xsi:type="menu:HandledToolItem" xmi:id="_MbPlQBtHEea5kf3wxK5uXw" elementId="com.project.kth.pwpr3d.app.handledtoolitem.delete" label="Delete" iconURI="platform:/plugin/com.project.kth.pwpr3d.app/icons/icons/icons/elcl16/delete_edit.png"/>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_MzXKUBtHEea5kf3wxK5uXw" elementId="com.project.kth.pwpr3d.app.handledtoolitem.models" label="Models" iconURI="platform:/plugin/com.project.kth.pwpr3d.app/icons/icons/models.gif"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_MzXKUBtHEea5kf3wxK5uXw" elementId="com.project.kth.pwpr3d.app.handledtoolitem.models" label="Models" iconURI="platform:/plugin/com.project.kth.pwpr3d.app/icons/icons/graph_view.gif"/>
         <children xsi:type="menu:HandledToolItem" xmi:id="_NiW-UBtHEea5kf3wxK5uXw" elementId="com.project.kth.pwpr3d.app.handledtoolitem.property" label="Property" iconURI="platform:/plugin/com.project.kth.pwpr3d.app/icons/icons/icons/elcl16/properties.png"/>
         <children xsi:type="menu:HandledToolItem" xmi:id="_O4fDwBtHEea5kf3wxK5uXw" elementId="com.project.kth.pwpr3d.app.handledtoolitem.outliine" label="OutLine" iconURI="platform:/plugin/com.project.kth.pwpr3d.app/icons/icons/icons/full/eview16/outline_co.png"/>
         <children xsi:type="menu:HandledToolItem" xmi:id="_PxhkkBtHEea5kf3wxK5uXw" elementId="com.project.kth.pwpr3d.app.handledtoolitem.navigator" label="Navigator" iconURI="platform:/plugin/com.project.kth.pwpr3d.app/icons/navigator-16.png"/>
@@ -135,7 +135,7 @@
     </trimBars>
   </children>
   <handlers xmi:id="_6wlLfcgZEeSyMNYR5xypkQ" elementId="com.project.kth.pwpr3d.app.handler.quitCommand" contributionURI="bundleclass://com.project.kth.pwpr3d.app/com.project.kth.pwpr3d.app.handlers.QuitHandler" command="_6wlLfMgZEeSyMNYR5xypkQ"/>
-  <handlers xmi:id="_6wlLgcgZEeSyMNYR5xypkQ" elementId="com.project.kth.pwpr3d.app.handler.openCommand" contributionURI="bundleclass://com.project.kth.pwpr3d.app/com.project.kth.pwpr3d.view.FileOpen" command="_6wlLgMgZEeSyMNYR5xypkQ"/>
+  <handlers xmi:id="_6wlLgcgZEeSyMNYR5xypkQ" elementId="com.project.kth.pwpr3d.app.handler.openCommand" contributionURI="bundleclass://com.project.kth.pwpr3d.app/com.project.kth.pwpr3d.app.handlers.OpenHandler" command="_6wlLgMgZEeSyMNYR5xypkQ"/>
   <handlers xmi:id="_6wlLhMgZEeSyMNYR5xypkQ" elementId="com.project.kth.pwpr3d.app.handler.saveCommand" contributionURI="bundleclass://com.project.kth.pwpr3d.app/com.project.kth.pwpr3d.app.handlers.SaveHandler" command="_6wlLg8gZEeSyMNYR5xypkQ"/>
   <handlers xmi:id="_6wlLh8gZEeSyMNYR5xypkQ" elementId="com.project.kth.pwpr3d.app.handler.aboutCommand" contributionURI="bundleclass://com.project.kth.pwpr3d.app/com.project.kth.pwpr3d.app.handlers.AboutHandler" command="_6wlLhsgZEeSyMNYR5xypkQ"/>
   <handlers xmi:id="_wqp7YCJmEea6hekjBvsywg" elementId="com.project.kth.pwpr3d.app.handler.0" contributionURI="bundleclass://com.project.kth.pwpr3d.app/com.project.kth.pwpr3d.view.FileOpen" command="_gGsZ0CJmEea6hekjBvsywg"/>
