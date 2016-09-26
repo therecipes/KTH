@@ -28,6 +28,9 @@ public class ManipulateDatabase {
 
 	public void AddDatabase() {
 		// TODO Auto-generated method stub
+		int reply = 0;
+		Scanner input = null;
+
 		try {
 			System.out.println("Existing Databases...");
 			DisplayDatabases();
@@ -55,14 +58,18 @@ public class ManipulateDatabase {
 			System.out.println("1. Create Table. ");
 			System.out.println("2. Exit. ");
 
-			Scanner input = new Scanner(System.in);
-			int reply = input.nextInt();
+			input = new Scanner(System.in);
+			if (input.hasNextInt()) {
+				reply = input.nextInt();
+			}
+			;
 
 			switch (reply) {
 			case 1:
 				CreateTables();
 				break;
 			default:
+				System.out.println("Goodbye!");
 				System.exit(0);
 			}
 		} catch (SQLException se) {
@@ -85,7 +92,7 @@ public class ManipulateDatabase {
 				se.printStackTrace();
 			} // end finally try
 		} // end try
-		//System.out.println("Goodbye!");
+			// System.out.println("Goodbye!");
 
 	}
 
@@ -96,12 +103,18 @@ public class ManipulateDatabase {
 
 	public void DropDatabase() {
 		// TODO Auto-generated method stub
+		int reply = 0;
+		Scanner input = null;
+
 		System.out.println("1. Drop Table. ");
 		System.out.println("2. Drop Database. ");
 		System.out.println("3. Exit. ");
 
-		Scanner input = new Scanner(System.in);
-		int reply = input.nextInt();
+		input = new Scanner(System.in);
+		if (input.hasNextInt()) {
+			reply = input.nextInt();
+		}
+		;
 
 		switch (reply) {
 		case 1:
@@ -163,7 +176,7 @@ public class ManipulateDatabase {
 				se.printStackTrace();
 			} // end finally try
 		} // end try
-		////System.out.println("Goodbye!");
+			//// System.out.println("Goodbye!");
 	}
 
 	private void DropTable() {
@@ -213,19 +226,25 @@ public class ManipulateDatabase {
 				se.printStackTrace();
 			} // end finally try
 		} // end try
-		//System.out.println("Goodbye!");
+			// System.out.println("Goodbye!");
 	}
 
 	public void ShowDatabase() {
 		// TODO Auto-generated method stub
+		int reply = 0;
+		Scanner input = null;
+
 		System.out.println("1. Show Database. ");
 		System.out.println("2. Table Regsitration. ");
 		System.out.println("3. Table Courses. ");
 		System.out.println("4. Table Takes. ");
 		System.out.println("5. Exit. ");
 
-		Scanner input = new Scanner(System.in);
-		int reply = input.nextInt();
+		input = new Scanner(System.in);
+		if (input.hasNextInt()) {
+			reply = input.nextInt();
+		}
+		;
 
 		switch (reply) {
 		case 1:
@@ -370,7 +389,7 @@ public class ManipulateDatabase {
 				se.printStackTrace();
 			} // end finally try
 		} // end try
-		//System.out.println("Goodbye!");
+			// System.out.println("Goodbye!");
 	}
 
 	private void TableCourses() {
@@ -442,7 +461,7 @@ public class ManipulateDatabase {
 				se.printStackTrace();
 			} // end finally try
 		} // end try
-		//System.out.println("Goodbye!");
+			// System.out.println("Goodbye!");
 	}
 
 	private void TableRegsitration() {
@@ -511,12 +530,15 @@ public class ManipulateDatabase {
 				se.printStackTrace();
 			} // end finally try
 		} // end try
-		//System.out.println("Goodbye!");
+			// System.out.println("Goodbye!");
 	}
 
 	public void CreateTables() {
 		// TODO Auto-generated method stub
 		try {
+			int reply = 0;
+			Scanner input = null;
+
 			System.out.println("Existing Databases...");
 			DisplayDatabases();
 
@@ -544,8 +566,11 @@ public class ManipulateDatabase {
 			System.out.println("4. Create Foreign Key. ");
 			System.out.println("5. Exit. ");
 
-			Scanner input = new Scanner(System.in);
-			int reply = input.nextInt();
+			input = new Scanner(System.in);
+			if (input.hasNextInt()) {
+				reply = input.nextInt();
+			}
+			;
 
 			String sql = null, answer = null;
 
@@ -595,7 +620,7 @@ public class ManipulateDatabase {
 			default:
 				System.exit(0);
 			}
-
+			input.close();
 			System.out.println("Created table in given database...");
 		} catch (SQLException se) {
 			// Handle errors for JDBC
@@ -694,7 +719,7 @@ public class ManipulateDatabase {
 				se.printStackTrace();
 			} // end finally try
 		} // end try
-		//System.out.println("Goodbye!");
+			// System.out.println("Goodbye!");
 	}
 
 	private void insertDataCourses() {
@@ -771,7 +796,7 @@ public class ManipulateDatabase {
 				se.printStackTrace();
 			} // end finally try
 		} // end try
-		//System.out.println("Goodbye!");
+			// System.out.println("Goodbye!");
 	}
 
 	private void insertDataRegistration() {
@@ -845,18 +870,24 @@ public class ManipulateDatabase {
 				se.printStackTrace();
 			} // end finally try
 		} // end try
-		//System.out.println("Goodbye!");
+			// System.out.println("Goodbye!");
 	}
 
 	public void AddRecords() {
 		// TODO Auto-generated method stub
+		int reply = 0;
+		Scanner input = null;
+
 		System.out.println("1. Add records to Registration. ");
 		System.out.println("2. Add records to Courses. ");
 		System.out.println("3. Add records to Takes. ");
 		System.out.println("4. Exit. ");
 
-		Scanner input = new Scanner(System.in);
-		int reply = input.nextInt();
+		input = new Scanner(System.in);
+		if (input.hasNextInt()) {
+			reply = input.nextInt();
+		}
+		;
 
 		switch (reply) {
 		case 1:
@@ -871,17 +902,24 @@ public class ManipulateDatabase {
 		default:
 			System.exit(0);
 		}
+		input.close();
 	}
 
 	public void ChangeRecords() {
 		// TODO Auto-generated method stub
+		int reply = 0;
+		Scanner input = null;
+
 		System.out.println("1. Change records in Table Registration. ");
 		System.out.println("2. Change records in Table Courses. ");
 		System.out.println("3. Change records in Table Takes ");
 		System.out.println("4. Exit. ");
 
-		Scanner input = new Scanner(System.in);
-		int reply = input.nextInt();
+		input = new Scanner(System.in);
+		if (input.hasNextInt()) {
+			reply = input.nextInt();
+		}
+		;
 
 		switch (reply) {
 		case 1:
@@ -894,14 +932,17 @@ public class ManipulateDatabase {
 			ChangeTakes();
 			break;
 		default:
-			//System.out.println("Goodbye!");
+			// System.out.println("Goodbye!");
 			System.exit(0);
 		}
-
+input.close();
 	}
 
 	private void ChangeRegsitration() {
 		// TODO Auto-generated method stub
+		int reply = 0;
+		Scanner input = null;
+
 		try {
 			TableRegsitration();
 
@@ -913,8 +954,11 @@ public class ManipulateDatabase {
 			System.out.println("2. Last Name. ");
 			System.out.println("3. Age. ");
 
-			Scanner input = new Scanner(System.in);
-			int reply = input.nextInt();
+			input = new Scanner(System.in);
+			if (input.hasNextInt()) {
+				reply = input.nextInt();
+			}
+			;
 
 			switch (reply) {
 			case 1:
@@ -973,6 +1017,9 @@ public class ManipulateDatabase {
 
 	private void ChangeCourses() {
 		// TODO Auto-generated method stub
+		int reply = 0;
+		Scanner input = null;
+
 		try {
 			TableCourses();
 
@@ -986,8 +1033,11 @@ public class ManipulateDatabase {
 			System.out.println("4. Course 4. ");
 			System.out.println("5. Department. ");
 
-			Scanner input = new Scanner(System.in);
-			int reply = input.nextInt();
+			input = new Scanner(System.in);
+			if (input.hasNextInt()) {
+				reply = input.nextInt();
+			}
+			;
 
 			switch (reply) {
 			case 1:
@@ -1061,6 +1111,9 @@ public class ManipulateDatabase {
 
 	private void ChangeTakes() {
 		// TODO Auto-generated method stub
+		int reply = 0;
+		Scanner input = null;
+
 		try {
 			TableCourses();
 
@@ -1074,8 +1127,11 @@ public class ManipulateDatabase {
 			System.out.println("4. Course 4. ");
 			System.out.println("5. Department. ");
 
-			Scanner input = new Scanner(System.in);
-			int reply = input.nextInt();
+			input = new Scanner(System.in);
+			if (input.hasNextInt()) {
+				reply = input.nextInt();
+			}
+			;
 
 			switch (reply) {
 			case 1:

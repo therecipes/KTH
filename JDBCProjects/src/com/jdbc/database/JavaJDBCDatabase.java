@@ -16,7 +16,8 @@ public class JavaJDBCDatabase {
 		// TODO Auto-generated method stub
 
 		ManipulateDatabase manipulateDatabase = new ManipulateDatabase(JDBC_DRIVER, DB_URL, USER, PASS);
-
+		int reply = 0;
+		Scanner input = null;
 		while (true) {
 			System.out.println("1. Add Database. ");
 			System.out.println("2. Change Database. ");
@@ -27,8 +28,8 @@ public class JavaJDBCDatabase {
 			System.out.println("7. Change records in database. ");
 			System.out.println("8. Exit. ");
 
-			Scanner input = new Scanner(System.in);
-			int reply = input.nextInt();
+			input = new Scanner(System.in);
+			if (input.hasNextInt()) {reply = input.nextInt();}
 
 			switch (reply) {
 			case 1:
