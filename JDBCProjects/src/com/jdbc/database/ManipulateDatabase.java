@@ -85,7 +85,7 @@ public class ManipulateDatabase {
 				se.printStackTrace();
 			} // end finally try
 		} // end try
-		System.out.println("Goodbye!");
+		//System.out.println("Goodbye!");
 
 	}
 
@@ -109,6 +109,7 @@ public class ManipulateDatabase {
 			break;
 		case 2:
 			DeleteDatabase();
+			break;
 		default:
 			System.exit(0);
 		}
@@ -139,7 +140,7 @@ public class ManipulateDatabase {
 			System.out.println("Deleting database...");
 			stmt = conn.createStatement();
 
-			String sql = "DROP DATABASE STUDENTS";
+			String sql = "DROP DATABASE " + databaseName;
 			stmt.executeUpdate(sql);
 			System.out.println("Database deleted successfully...");
 		} catch (SQLException se) {
@@ -162,7 +163,7 @@ public class ManipulateDatabase {
 				se.printStackTrace();
 			} // end finally try
 		} // end try
-		System.out.println("Goodbye!");
+		////System.out.println("Goodbye!");
 	}
 
 	private void DropTable() {
@@ -212,7 +213,7 @@ public class ManipulateDatabase {
 				se.printStackTrace();
 			} // end finally try
 		} // end try
-		System.out.println("Goodbye!");
+		//System.out.println("Goodbye!");
 	}
 
 	public void ShowDatabase() {
@@ -235,8 +236,10 @@ public class ManipulateDatabase {
 			break;
 		case 3:
 			TableCourses();
+			break;
 		case 4:
 			TableTakes();
+			break;
 		default:
 			System.exit(0);
 		}
@@ -292,7 +295,7 @@ public class ManipulateDatabase {
 				se.printStackTrace();
 			} // end finally try
 		} // end try
-		System.out.println("Goodbye!");
+			// System.out.println("Goodbye!");
 
 	}
 
@@ -319,24 +322,29 @@ public class ManipulateDatabase {
 			System.out.println("Creating statement...");
 			stmt = conn.createStatement();
 			String sql;
-			sql = "SELECT id, coursesid1, coursesid2, coursesid3, coursesid4 FROM Takes";
+			sql = "SELECT id, courseid1, courseid2, courseid3, courseid4 FROM Takes";
 			ResultSet rs = stmt.executeQuery(sql);
 
 			// STEP 5: Extract data from result set
+
+			System.out.println("------------------------------------------------------");
+			System.out.println("|  ID  | Course 1 | Course 2  |  Course 3 | Course 4 |");
+			System.out.println("------------------------------------------------------");
+
 			while (rs.next()) {
 				// Retrieve by column name
 				int id = rs.getInt("id");
-				String coursesid1 = rs.getString("coursesid1");
-				String coursesid2 = rs.getString("coursesid2");
-				String coursesid3 = rs.getString("coursesid3");
-				String coursesid4 = rs.getString("coursesid4");
+				String courseid1 = rs.getString("courseid1");
+				String courseid2 = rs.getString("courseid2");
+				String courseid3 = rs.getString("courseid3");
+				String courseid4 = rs.getString("courseid4");
 
 				// Display values
-				System.out.print("ID: " + id);
-				System.out.print(", Courses ID1 : " + coursesid1);
-				System.out.print(", Courses ID2: " + coursesid2);
-				System.out.println(", Courses ID3: " + coursesid3);
-				System.out.println(", Courses ID4: " + coursesid4);
+				System.out.print("|  " + id);
+				System.out.print("  |  " + courseid1);
+				System.out.print(" |  " + courseid2);
+				System.out.print(" |  " + courseid3);
+				System.out.println("  |  " + courseid4 + " |");
 			}
 			// STEP 6: Clean-up environment
 			rs.close();
@@ -362,7 +370,7 @@ public class ManipulateDatabase {
 				se.printStackTrace();
 			} // end finally try
 		} // end try
-		System.out.println("Goodbye!");
+		//System.out.println("Goodbye!");
 	}
 
 	private void TableCourses() {
@@ -387,24 +395,28 @@ public class ManipulateDatabase {
 			System.out.println("Creating statement...");
 			stmt = conn.createStatement();
 			String sql;
-			sql = "SELECT coursesid1, coursesid2, coursesid3, coursesid4, department FROM Courses";
+			sql = "SELECT courseid1, courseid2, courseid3, courseid4, department FROM Courses";
 			ResultSet rs = stmt.executeQuery(sql);
 
 			// STEP 5: Extract data from result set
+			System.out.println("------------------------------------------------------------------------------------");
+			System.out
+					.println("| Course 1    |    Course 2   |   Course 3 |    Course 4  |     		Department 		|");
+			System.out.println("------------------------------------------------------------------------------------");
 			while (rs.next()) {
 				// Retrieve by column name
-				String coursesid1 = rs.getString("coursesid1");
-				String coursesid2 = rs.getString("coursesid2");
-				String coursesid3 = rs.getString("coursesid3");
-				String coursesid4 = rs.getString("coursesid4");
+				String coursesid1 = rs.getString("courseid1");
+				String coursesid2 = rs.getString("courseid2");
+				String coursesid3 = rs.getString("courseid3");
+				String coursesid4 = rs.getString("courseid4");
 				String dept = rs.getString("department");
 
 				// Display values
-				System.out.print(", Courses ID1: " + coursesid1);
-				System.out.print(", Courses ID2: " + coursesid2);
-				System.out.print(", Courses ID3: " + coursesid3);
-				System.out.print(", Courses ID4: " + coursesid4);
-				System.out.println(", Department: " + dept);
+				System.out.print("| " + coursesid1);
+				System.out.print("  |  " + coursesid2);
+				System.out.print(" | " + coursesid3);
+				System.out.print(" | " + coursesid4);
+				System.out.println(" | " + dept + " | ");
 			}
 			// STEP 6: Clean-up environment
 			rs.close();
@@ -430,7 +442,7 @@ public class ManipulateDatabase {
 				se.printStackTrace();
 			} // end finally try
 		} // end try
-		System.out.println("Goodbye!");
+		//System.out.println("Goodbye!");
 	}
 
 	private void TableRegsitration() {
@@ -459,6 +471,9 @@ public class ManipulateDatabase {
 			ResultSet rs = stmt.executeQuery(sql);
 
 			// STEP 5: Extract data from result set
+			System.out.println("------------------------------------------------");
+			System.out.println("| ID    |    First Name   |   Last Name |    Age |");
+			System.out.println("------------------------------------------------");
 			while (rs.next()) {
 				// Retrieve by column name
 				int id = rs.getInt("id");
@@ -467,10 +482,10 @@ public class ManipulateDatabase {
 				String age = rs.getString("age");
 
 				// Display values
-				System.out.print("ID: " + id);
-				System.out.print(", First : " + first);
-				System.out.print(", Last " + last);
-				System.out.println(", Age " + age);
+				System.out.print("| " + id);
+				System.out.print("   |  " + first);
+				System.out.print("      | " + last);
+				System.out.println("   | " + age + " | ");
 			}
 			// STEP 6: Clean-up environment
 			rs.close();
@@ -496,7 +511,7 @@ public class ManipulateDatabase {
 				se.printStackTrace();
 			} // end finally try
 		} // end try
-		System.out.println("Goodbye!");
+		//System.out.println("Goodbye!");
 	}
 
 	public void CreateTables() {
@@ -602,7 +617,7 @@ public class ManipulateDatabase {
 				se.printStackTrace();
 			} // end finally try
 		} // end try
-		System.out.println("Goodbye!");
+			// System.out.println("Goodbye!");
 	}
 
 	private void insertDataTakes() {
@@ -648,12 +663,12 @@ public class ManipulateDatabase {
 				System.out.print("Enter Student 4th Course code: ");
 				courseid4 = input.next();
 
-				String sql = "INSERT INTO Takes VALUES (" + idNumber + ", '" + courseid1 + "', '" + courseid2
-						+ "', '" + courseid3 + "', '" + courseid4 + "')";
+				String sql = "INSERT INTO Takes VALUES (" + idNumber + ", '" + courseid1 + "', '" + courseid2 + "', '"
+						+ courseid3 + "', '" + courseid4 + "')";
 				stmt.executeUpdate(sql);
 
 				System.out.print(" Enter more data (Y/N)? ");
-				answer = Character.toUpperCase((char) input.nextByte());
+				answer = Character.toUpperCase(input.next().charAt(0));
 			} while (answer == 'Y');
 
 			System.out.println("Inserted records into the table...");
@@ -679,13 +694,13 @@ public class ManipulateDatabase {
 				se.printStackTrace();
 			} // end finally try
 		} // end try
-		System.out.println("Goodbye!");
+		//System.out.println("Goodbye!");
 	}
 
 	private void insertDataCourses() {
 		// TODO Auto-generated method stub
 
-		Scanner input = new Scanner(System.in);
+		Scanner inputCourses = new Scanner(System.in);
 		String courseid1 = null;
 		String courseid2 = null;
 		String courseid3 = null;
@@ -715,22 +730,22 @@ public class ManipulateDatabase {
 			stmt = conn.createStatement();
 			do {
 				System.out.print("Enter Student First Course code: ");
-				courseid1 = input.next();
+				courseid1 = inputCourses.next();
 				System.out.print("Enter Student 2nd Course code: ");
-				courseid2 = input.next();
+				courseid2 = inputCourses.next();
 				System.out.print("Enter Student 3rd Course code: ");
-				courseid3 = input.next();
+				courseid3 = inputCourses.next();
 				System.out.print("Enter Student 4th Course code: ");
-				courseid4 = input.next();
+				courseid4 = inputCourses.next();
 				System.out.print("Enter the Department: ");
-				dept = input.next();
+				dept = inputCourses.next();
 
-				String sql = "INSERT INTO Coureses VALUES ('" + courseid1 + "', '" + courseid2 + "', '" + courseid3
+				String sql = "INSERT INTO Courses VALUES ('" + courseid1 + "', '" + courseid2 + "', '" + courseid3
 						+ "', '" + courseid4 + "', '" + dept + "')";
 				stmt.executeUpdate(sql);
 
 				System.out.print(" Enter more data (Y/N)? ");
-				answer = Character.toUpperCase((char) input.nextByte());
+				answer = Character.toUpperCase(inputCourses.next().charAt(0));
 			} while (answer == 'Y');
 
 			System.out.println("Inserted records into the table...");
@@ -743,7 +758,7 @@ public class ManipulateDatabase {
 			e.printStackTrace();
 		} finally {
 			// finally block used to close resources
-			input.close();
+			inputCourses.close();
 			try {
 				if (stmt != null)
 					conn.close();
@@ -756,7 +771,7 @@ public class ManipulateDatabase {
 				se.printStackTrace();
 			} // end finally try
 		} // end try
-		System.out.println("Goodbye!");
+		//System.out.println("Goodbye!");
 	}
 
 	private void insertDataRegistration() {
@@ -830,7 +845,7 @@ public class ManipulateDatabase {
 				se.printStackTrace();
 			} // end finally try
 		} // end try
-		System.out.println("Goodbye!");
+		//System.out.println("Goodbye!");
 	}
 
 	public void AddRecords() {
@@ -858,4 +873,277 @@ public class ManipulateDatabase {
 		}
 	}
 
+	public void ChangeRecords() {
+		// TODO Auto-generated method stub
+		System.out.println("1. Change records in Table Registration. ");
+		System.out.println("2. Change records in Table Courses. ");
+		System.out.println("3. Change records in Table Takes ");
+		System.out.println("4. Exit. ");
+
+		Scanner input = new Scanner(System.in);
+		int reply = input.nextInt();
+
+		switch (reply) {
+		case 1:
+			ChangeRegsitration();
+			break;
+		case 2:
+			ChangeCourses();
+			break;
+		case 3:
+			ChangeTakes();
+			break;
+		default:
+			//System.out.println("Goodbye!");
+			System.exit(0);
+		}
+
+	}
+
+	private void ChangeRegsitration() {
+		// TODO Auto-generated method stub
+		try {
+			TableRegsitration();
+
+			// STEP 4: Execute a query
+			System.out.println("Creating statement...");
+			stmt = conn.createStatement();
+			System.out.println("What do you want to change? ");
+			System.out.println("1. First Name. ");
+			System.out.println("2. Last Name. ");
+			System.out.println("3. Age. ");
+
+			Scanner input = new Scanner(System.in);
+			int reply = input.nextInt();
+
+			switch (reply) {
+			case 1:
+				System.out.print("Enter Old First Name ");
+				String oldFirstName = input.next();
+				System.out.print("Enter New First Name ");
+				String newFirstName = input.next();
+				String sql = "UPDATE Registration SET first = " + newFirstName + " WHERE id in (" + oldFirstName + ")";
+				stmt.executeUpdate(sql);
+				break;
+			case 2:
+				System.out.print("Enter Old Last Name ");
+				String oldLastName = input.next();
+				System.out.print("Enter New Last Name ");
+				String newLastName = input.next();
+				sql = "UPDATE Registration SET last = " + newLastName + "WHERE id in (" + oldLastName + ")";
+				stmt.executeUpdate(sql);
+				break;
+			case 3:
+				System.out.print("Enter Old Age ");
+				String oldAge = input.next();
+				System.out.print("Enter New Age");
+				String newAge = input.next();
+				sql = "UPDATE Registration SET first = " + newAge + " WHERE id in (" + oldAge + ")";
+				stmt.executeUpdate(sql);
+				break;
+			default:
+				new JavaJDBCDatabase();
+
+			}
+
+			TableRegsitration();
+
+		} catch (SQLException se) {
+			// Handle errors for JDBC
+			se.printStackTrace();
+		} catch (Exception e) {
+			// Handle errors for Class.forName
+			e.printStackTrace();
+		} finally {
+			// finally block used to close resources
+			try {
+				if (stmt != null)
+					conn.close();
+			} catch (SQLException se) {
+			} // do nothing
+			try {
+				if (conn != null)
+					conn.close();
+			} catch (SQLException se) {
+				se.printStackTrace();
+			} // end finally try
+		} // end try
+
+	}
+
+	private void ChangeCourses() {
+		// TODO Auto-generated method stub
+		try {
+			TableCourses();
+
+			// STEP 4: Execute a query
+			System.out.println("Creating statement...");
+			stmt = conn.createStatement();
+			System.out.println("What do you want to change? ");
+			System.out.println("1. Course 1. ");
+			System.out.println("2. Course 2. ");
+			System.out.println("3. Course 3. ");
+			System.out.println("4. Course 4. ");
+			System.out.println("5. Department. ");
+
+			Scanner input = new Scanner(System.in);
+			int reply = input.nextInt();
+
+			switch (reply) {
+			case 1:
+				System.out.print("Enter Old Course 1 ");
+				String oldCourse1 = input.next();
+				System.out.print("Enter New Course 1 ");
+				String newCourse1 = input.next();
+				String sql = "UPDATE Registration SET first = " + newCourse1 + " WHERE id in (" + oldCourse1 + ")";
+				stmt.executeUpdate(sql);
+				break;
+			case 2:
+				System.out.print("Enter Old Course 2 ");
+				String oldCourse2 = input.next();
+				System.out.print("Enter New Course 2 ");
+				String newCourse2 = input.next();
+				sql = "UPDATE Registration SET first = " + newCourse2 + " WHERE id in (" + oldCourse2 + ")";
+				stmt.executeUpdate(sql);
+				break;
+			case 3:
+				System.out.print("Enter Old Course 3 ");
+				String oldCourse3 = input.next();
+				System.out.print("Enter New Course 3 ");
+				String newCourse3 = input.next();
+				sql = "UPDATE Registration SET first = " + newCourse3 + " WHERE id in (" + oldCourse3 + ")";
+				stmt.executeUpdate(sql);
+				break;
+			case 4:
+				System.out.print("Enter Old Course 4 ");
+				String oldCourse4 = input.next();
+				System.out.print("Enter New Course 4 ");
+				String newCourse4 = input.next();
+				sql = "UPDATE Registration SET first = " + newCourse4 + " WHERE id in (" + oldCourse4 + ")";
+				stmt.executeUpdate(sql);
+				break;
+			case 5:
+				System.out.print("Enter Old Department ");
+				String oldDepartment = input.next();
+				System.out.print("Enter New Department ");
+				String newDepartment = input.next();
+				sql = "UPDATE Registration SET first = " + newDepartment + " WHERE id in (" + oldDepartment + ")";
+				stmt.executeUpdate(sql);
+				break;
+			default:
+				new JavaJDBCDatabase();
+			}
+
+			TableCourses();
+
+		} catch (SQLException se) {
+			// Handle errors for JDBC
+			se.printStackTrace();
+		} catch (Exception e) {
+			// Handle errors for Class.forName
+			e.printStackTrace();
+		} finally {
+			// finally block used to close resources
+			try {
+				if (stmt != null)
+					conn.close();
+			} catch (SQLException se) {
+			} // do nothing
+			try {
+				if (conn != null)
+					conn.close();
+			} catch (SQLException se) {
+				se.printStackTrace();
+			} // end finally try
+		} // end try
+
+	}
+
+	private void ChangeTakes() {
+		// TODO Auto-generated method stub
+		try {
+			TableCourses();
+
+			// STEP 4: Execute a query
+			System.out.println("Creating statement...");
+			stmt = conn.createStatement();
+			System.out.println("What do you want to change? ");
+			System.out.println("1. Course 1. ");
+			System.out.println("2. Course 2. ");
+			System.out.println("3. Course 3. ");
+			System.out.println("4. Course 4. ");
+			System.out.println("5. Department. ");
+
+			Scanner input = new Scanner(System.in);
+			int reply = input.nextInt();
+
+			switch (reply) {
+			case 1:
+				System.out.print("Enter Old Course 1 ");
+				String oldCourse1 = input.next();
+				System.out.print("Enter New Course 1 ");
+				String newCourse1 = input.next();
+				String sql = "UPDATE Registration SET first = " + newCourse1 + " WHERE id in (" + oldCourse1 + ")";
+				stmt.executeUpdate(sql);
+				break;
+			case 2:
+				System.out.print("Enter Old Course 2 ");
+				String oldCourse2 = input.next();
+				System.out.print("Enter New Course 2 ");
+				String newCourse2 = input.next();
+				sql = "UPDATE Registration SET first = " + newCourse2 + " WHERE id in (" + oldCourse2 + ")";
+				stmt.executeUpdate(sql);
+				break;
+			case 3:
+				System.out.print("Enter Old Course 3 ");
+				String oldCourse3 = input.next();
+				System.out.print("Enter New Course 3 ");
+				String newCourse3 = input.next();
+				sql = "UPDATE Registration SET first = " + newCourse3 + " WHERE id in (" + oldCourse3 + ")";
+				stmt.executeUpdate(sql);
+				break;
+			case 4:
+				System.out.print("Enter Old Course 4 ");
+				String oldCourse4 = input.next();
+				System.out.print("Enter New Course 4 ");
+				String newCourse4 = input.next();
+				sql = "UPDATE Registration SET first = " + newCourse4 + " WHERE id in (" + oldCourse4 + ")";
+				stmt.executeUpdate(sql);
+				break;
+			case 5:
+				System.out.print("Enter Old Department ");
+				String oldDepartment = input.next();
+				System.out.print("Enter New Department ");
+				String newDepartment = input.next();
+				sql = "UPDATE Registration SET first = " + newDepartment + " WHERE id in (" + oldDepartment + ")";
+				stmt.executeUpdate(sql);
+				break;
+			default:
+				new JavaJDBCDatabase();
+			}
+
+			TableCourses();
+
+		} catch (SQLException se) {
+			// Handle errors for JDBC
+			se.printStackTrace();
+		} catch (Exception e) {
+			// Handle errors for Class.forName
+			e.printStackTrace();
+		} finally {
+			// finally block used to close resources
+			try {
+				if (stmt != null)
+					conn.close();
+			} catch (SQLException se) {
+			} // do nothing
+			try {
+				if (conn != null)
+					conn.close();
+			} catch (SQLException se) {
+				se.printStackTrace();
+			} // end finally try
+		} // end try
+
+	}
 }
