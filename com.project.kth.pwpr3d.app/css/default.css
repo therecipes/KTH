@@ -1,0 +1,20 @@
+.MPart {
+    background-color:white;
+}
+                                  Text {
+                                      font-size:12pt;
+                                  }
+
+ Button {
+     font-weight:bold;
+ }
+
+ .MTrimBar {
+     background-color: #93e4ff;
+ }
+ .TrimBar{
+     background-color: #85d4ff;
+ }
+.perspectiveColor{
+   background-color: #85d4ff;
+}

@@ -18,5 +18,32 @@
          </property>
       </product>
    </extension>
+   <extension
+         point="org.eclipse.ui.intro">
+      <intro
+            class="org.eclipse.ui.intro.config.CustomizableIntroPart"
+            id="com.project.kth.pwpr3d.app.intro">
+      </intro>
+      <introProductBinding
+            introId="com.project.kth.pwpr3d.app.intro"
+            productId="com.project.kth.pwpr3d.app.product">
+      </introProductBinding>
+   </extension>
+   <extension
+         point="org.eclipse.ui.intro.config">
+      <config
+            content="introContent.xml"
+            id="com.project.kth.pwpr3d.app.introConfigId"
+            introId="com.project.kth.pwpr3d.app.intro">
+         <presentation
+               home-page-id="root">
+            <implementation
+                  kind="html"
+                  os="win32,linux,macosx"
+                  style="content/shared.css">
+            </implementation>
+         </presentation>
+      </config>
+   </extension>
 
 </plugin>
